@@ -32,6 +32,15 @@
         v-model="user.confirmPassword"
         required
       />
+      <label for = "user-type" class="sr-only">Account Type</label>
+      <select v-model="user.role">
+        <option disabled value = "">Please select one</option>
+        <option value = 'user'>Participant</option>
+        <option value = 'organizer'>Tournament Host</option>
+      </select>
+      
+
+
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
@@ -51,7 +60,7 @@ export default {
         username: '',
         password: '',
         confirmPassword: '',
-        role: 'user',
+        role: '',
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
