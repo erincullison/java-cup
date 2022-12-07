@@ -20,6 +20,7 @@ public class TournamentController {
 
 
     //the following two methods should be accessible to any user without signing in
+
     @RequestMapping (path = "tournaments", method= RequestMethod.GET)
     public List<Tournament> getTournaments() {return tournamentDao.findAll();}
 
@@ -30,6 +31,7 @@ public class TournamentController {
 
 
     //this method should be accessible only to users with ROLE_ORGANIZER
+
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping(path = "create", method = RequestMethod.POST)
     public void createTournament(@RequestBody Tournament tournament){
@@ -38,6 +40,7 @@ public class TournamentController {
 
 
     //this method should be accesible only to the organizer who created the tournament
+
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping(path = "tournaments/{tournamentId}", method= RequestMethod.PUT)
     public void updateTournament(@PathVariable int tournamentId, @RequestBody Tournament tournament){

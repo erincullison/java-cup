@@ -22,7 +22,7 @@ public class JdbcTournamentDao implements TournamentDao {
     @Override
     public List<Tournament> findAll() {
         List<Tournament> tournaments = new ArrayList<>();
-        String sql = "SELECT tournament_id, tournament_name, tournament_date, number_of_participants FROM tournament";
+        String sql = "SELECT * FROM tournament";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while(results.next()) {
             Tournament tournament = mapRowToTournament(results);
@@ -49,9 +49,9 @@ public class JdbcTournamentDao implements TournamentDao {
 
     @Override
     public void createTournament(Tournament tournament) {
-        String sql = "INSERT INTO tournament(tournament_name, tournament_date, number_of_participants) VALUES (?, ?, ?);";
+        String sql = "INSERT INTO tournament(tournament_name, tournament_date, number_of_participants, organizer_id) VALUES (?, ?, ?, ?);";
 
-        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getNumberOfParticipants());
+        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getNumberOfParticipants(), tournament.getOrganizerId());
 
     }
 
@@ -71,6 +71,7 @@ public class JdbcTournamentDao implements TournamentDao {
         tournament.setTournamentDate(rs.getDate("tournament_date").toLocalDate());
         tournament.setTournamentId(rs.getInt("tournament_id"));
         tournament.setTournamentName(rs.getString("tournament_name"));
+        tournament.setOrganizerId(rs.getInt("organizer_id"));
         return tournament;
     }
 
