@@ -8,6 +8,7 @@ import store from '../store/index'
 
 //IMPORTS NEW VIEWS HERE
 import Tournaments from '../views/Tournaments.vue'
+import CreateTournament from '../views/CreateTournament.vue'
 
 
 
@@ -66,6 +67,15 @@ const router = new Router({
       component: Tournaments,
       meta: {
         requiresAuth: false
+      }
+    },
+    //ROUTE TO CREATE TOURNAMENT
+    {
+      path: "/create-tournament",
+      name: "create-tournament",
+      component: CreateTournament,
+      meta: {
+        requiresAuth: true
       }
     },
 

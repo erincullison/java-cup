@@ -1,13 +1,23 @@
 import axios from 'axios';
 
-export default {
+const http = axios.create({
+  baseURL: "http://localhost:9000"
+});
 
-    // login(user) {
-    //   return axios.post('/login', user)                  ADD SERVER METHODS HERE
-    // },
-  
-    // register(user) {
-    //   return axios.post('/register', user)
-    // }
-  
+export default {
+  list() {
+    return http.get('/tournaments');
+  },
+  get(id) {
+    return http.get(`/tournaments/${id}`);
+  },
+  create(tournament) {
+    return http.post('/tournaments', tournament)
+  },
+  update(tournamentId, tournament) {
+    return http.put(`/tournaments/${tournamentId}`, tournament);
+  },
+  delete(tournamentID) {
+    return http.delete(`/tournaments/${tournamentID}`);
   }
+}

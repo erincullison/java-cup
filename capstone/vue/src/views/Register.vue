@@ -62,6 +62,11 @@ export default {
         confirmPassword: '',
         role: '',
       },
+      tournament: {
+        tournament_name: '',
+        tournament_date: null,
+        number_of_participants: null
+      },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',
     };
