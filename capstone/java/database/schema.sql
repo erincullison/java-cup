@@ -17,8 +17,7 @@ CREATE TABLE tournament (
 	number_of_participants integer NOT NULL,
 	organizer_id integer,
 	CONSTRAINT PK_tournament PRIMARY KEY(tournament_id),
-
-	--CONSTRAINT FK_organizer_tournament FOREIGN KEY (organizer_id) REFERENCES users(user_id)
+	CONSTRAINT FK_organizer_tournament FOREIGN KEY (organizer_id) REFERENCES users(user_id)
 );
 CREATE TABLE user_tournament (
 	user_id integer,
