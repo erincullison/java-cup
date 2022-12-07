@@ -19,15 +19,23 @@ public class TournamentController {
     }
 
 
-    //the following two methods should be accessible to any user without signing in
-
-    @RequestMapping (path = "tournaments", method= RequestMethod.GET)
-    public List<Tournament> getTournaments() {return tournamentDao.findAll();}
+    //the following three methods should be accessible to any user without signing in
 
     @RequestMapping (path = "tournaments/{tournamentId}", method= RequestMethod.GET)
-    public Tournament getTournaments(@PathVariable int tournamentId) {
+    public Tournament getTournamentById(@PathVariable int tournamentId) {
         return tournamentDao.getTournamentById(tournamentId);
     }
+
+    @RequestMapping (path = "tournaments", method= RequestMethod.GET)
+    public List<Tournament> getTournamentsByName(@RequestParam(value="title_like", defaultValue = "") String search){
+        return tournamentDao.searchByTournamentName(search);
+    }
+
+    @RequestMapping (path = "organizer/{organizerId}", method= RequestMethod.GET)
+    public List<Tournament> getTournamentsByOrganizerId(@PathVariable int organizerId){
+        return tournamentDao.getTournamentsByOrganizerId(organizerId);
+    }
+
 
 
     //this method should be accessible only to users with ROLE_ORGANIZER
@@ -46,6 +54,7 @@ public class TournamentController {
     public void updateTournament(@PathVariable int tournamentId, @RequestBody Tournament tournament){
         tournamentDao.updateTournament(tournamentId, tournament);
     }
+
 
 
 
