@@ -9,5 +9,5 @@ public interface TournamentDao {
     List<Tournament> findAll();
 
     Tournament getTournamentById(int tournamentId);
-    //Tournament createTournament()
+    Tournament createTournament(Tournament tournament);
 }

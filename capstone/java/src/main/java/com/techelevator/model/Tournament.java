@@ -9,6 +9,9 @@ public class Tournament {
     private LocalDate tournamentDate;
     private int numberOfParticipants;
 
+    public Tournament() {
+    }
+
     public Tournament(int tournamentId, String tournamentName, LocalDate tournamentDate, int numberOfParticipants) {
         this.tournamentId = tournamentId;
         this.tournamentName = tournamentName;
