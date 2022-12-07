@@ -65,6 +65,31 @@ public class JdbcTournamentDao implements TournamentDao {
         jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getNumberOfParticipants(), tournamentId);
     }
 
+    @Override
+    public List<Tournament> searchByTournamentName(String search) {
+        List<Tournament> tournaments = new ArrayList<>();
+        String sql = "SELECT * FROM tournament WHERE tournament_name ILIKE ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, "%"+search+ "%");
+        while(results.next()) {
+            Tournament tournament = mapRowToTournament(results);
+            tournaments.add(tournament);
+        }
+        return tournaments;
+
+    }
+
+    @Override
+    public List<Tournament> getTournamentsByOrganizerId(int organizerId) {
+        List<Tournament> tournaments = new ArrayList<>();
+        String sql = "SELECT * FROM tournament WHERE organizer_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, organizerId);
+        while(results.next()) {
+            Tournament tournament = mapRowToTournament(results);
+            tournaments.add(tournament);
+        }
+        return tournaments;
+    }
+
     private Tournament mapRowToTournament(SqlRowSet rs) {
         Tournament tournament = new Tournament();
         tournament.setNumberOfParticipants(rs.getInt("number_of_participants"));
