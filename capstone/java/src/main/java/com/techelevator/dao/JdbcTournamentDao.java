@@ -6,6 +6,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,15 +48,21 @@ public class JdbcTournamentDao implements TournamentDao {
     }
 
     @Override
-    public Tournament createTournament(Tournament tournament) {
+    public void createTournament(Tournament tournament) {
         String sql = "INSERT INTO tournament(tournament_name, tournament_date, number_of_participants) VALUES (?, ?, ?);";
 
+        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getNumberOfParticipants());
 
-        // sending null values for name, date, number of participants
+    }
 
-       // jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getNumberOfParticipants());
-        return tournament;
+    @Override
+    public void updateTournament(int tournamentId, Tournament tournament) {
+        String sql = "UPDATE tournament " +
+                "SET tournament_name=?, tournament_date=?, number_of_participants=? " +
+                "WHERE tournament_id=?;";
 
+
+        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getNumberOfParticipants(), tournamentId);
     }
 
     private Tournament mapRowToTournament(SqlRowSet rs) {
@@ -66,6 +73,8 @@ public class JdbcTournamentDao implements TournamentDao {
         tournament.setTournamentName(rs.getString("tournament_name"));
         return tournament;
     }
+
+
 
 
 }
