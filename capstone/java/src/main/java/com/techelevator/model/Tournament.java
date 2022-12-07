@@ -8,12 +8,17 @@ public class Tournament {
     private String tournamentName;
     private LocalDate tournamentDate;
     private int numberOfParticipants;
+    private int organizerId;
 
-    public Tournament(int tournamentId, String tournamentName, LocalDate tournamentDate, int numberOfParticipants) {
+    public Tournament() {
+    }
+
+    public Tournament(int tournamentId, String tournamentName, LocalDate tournamentDate, int numberOfParticipants, int organizerId) {
         this.tournamentId = tournamentId;
         this.tournamentName = tournamentName;
         this.tournamentDate = tournamentDate;
         this.numberOfParticipants = numberOfParticipants;
+        this.organizerId = organizerId;
     }
 
     public int getTournamentId() {
@@ -46,5 +51,13 @@ public class Tournament {
 
     public void setNumberOfParticipants(int numberOfParticipants) {
         this.numberOfParticipants = numberOfParticipants;
+    }
+
+    public int getOrganizerId() {
+        return organizerId;
+    }
+
+    public void setOrganizerId(int organizerId) {
+        this.organizerId = organizerId;
     }
 }
