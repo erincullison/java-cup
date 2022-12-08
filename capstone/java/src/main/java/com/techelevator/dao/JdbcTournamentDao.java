@@ -89,6 +89,21 @@ public class JdbcTournamentDao implements TournamentDao {
 
     }
 
+    @Override
+    public void addUserToTournament(int tournamentId, Principal principal) {
+        //increases current number of participants by 1
+         String sql = "UPDATE tournament " +
+                "SET current_number_of_participants = current_number_of_participants + 1 " +
+                "WHERE tournament_id=?";
+        jdbcTemplate.update(sql, tournamentId);
+
+        //add user to the user_tournaments table
+        int userId = userDao.findIdByUsername(principal.getName());
+        String sqlAddToUserTournament = "INSERT INTO user_tournament(user_id, tournament_id) VALUES (?, ?);";
+        jdbcTemplate.update(sqlAddToUserTournament, userId, tournamentId);
+
+
+    }
 
 
     private Tournament mapRowToTournament(SqlRowSet rs) {

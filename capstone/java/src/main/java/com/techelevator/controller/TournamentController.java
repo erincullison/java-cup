@@ -56,6 +56,10 @@ public class TournamentController {
     }
 
     //NEEDS UPDATE METHOD FOR USERS TO SIGN UP AND UPDATE COUNT
+    @RequestMapping(path = "tournaments/{tournamentId}", method= RequestMethod.POST)
+    public void addUserToTournament(@PathVariable int tournamentId, Principal principal){
+        tournamentDao.addUserToTournament(tournamentId, principal);
+    }
 
     //NEED TO ADD METHOD TO UPDATE USER AND ORGANIZER JOIN TABLES WHEN CREATING/SIGNING UP -probably in dao
 
