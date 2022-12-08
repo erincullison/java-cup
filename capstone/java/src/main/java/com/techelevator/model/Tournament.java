@@ -7,18 +7,19 @@ public class Tournament {
     private int tournamentId;
     private String tournamentName;
     private LocalDate tournamentDate;
-    private int numberOfParticipants;
-    private int organizerId;
+    private int maxNumberOfParticipants;
+    private int currentNumberOfParticipants;
+
 
     public Tournament() {
     }
 
-    public Tournament(int tournamentId, String tournamentName, LocalDate tournamentDate, int numberOfParticipants, int organizerId) {
+    public Tournament(int tournamentId, String tournamentName, LocalDate tournamentDate, int maxNumberOfParticipants, int currentNumberOfParticipants) {
         this.tournamentId = tournamentId;
         this.tournamentName = tournamentName;
         this.tournamentDate = tournamentDate;
-        this.numberOfParticipants = numberOfParticipants;
-        this.organizerId = organizerId;
+        this.maxNumberOfParticipants = maxNumberOfParticipants;
+        this.currentNumberOfParticipants = currentNumberOfParticipants;
     }
 
     public int getTournamentId() {
@@ -45,19 +46,19 @@ public class Tournament {
         this.tournamentDate = tournamentDate;
     }
 
-    public int getNumberOfParticipants() {
-        return numberOfParticipants;
+    public int getMaxNumberOfParticipants() {
+        return maxNumberOfParticipants;
     }
 
-    public void setNumberOfParticipants(int numberOfParticipants) {
-        this.numberOfParticipants = numberOfParticipants;
+    public void setMaxNumberOfParticipants(int maxNumberOfParticipants) {
+        this.maxNumberOfParticipants = maxNumberOfParticipants;
     }
 
-    public int getOrganizerId() {
-        return organizerId;
+    public int getCurrentNumberOfParticipants() {
+        return currentNumberOfParticipants;
     }
 
-    public void setOrganizerId(int organizerId) {
-        this.organizerId = organizerId;
+    public void setCurrentNumberOfParticipants(int currentNumberOfParticipants) {
+        this.currentNumberOfParticipants = currentNumberOfParticipants;
     }
 }

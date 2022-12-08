@@ -33,10 +33,6 @@ public class TournamentController {
         return tournamentDao.searchByTournamentName(search);
     }
 
-    @RequestMapping (path = "organizer/{organizerId}", method= RequestMethod.GET)
-    public List<Tournament> getTournamentsByOrganizerId(@PathVariable int organizerId){
-        return tournamentDao.getTournamentsByOrganizerId(organizerId);
-    }
 
 
 

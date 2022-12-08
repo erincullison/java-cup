@@ -49,20 +49,20 @@ public class JdbcTournamentDao implements TournamentDao {
 
     @Override
     public void createTournament(Tournament tournament) {
-        String sql = "INSERT INTO tournament(tournament_name, tournament_date, number_of_participants, organizer_id) VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO tournament(tournament_name, tournament_date, max_number_of_participants, current_number_of_participants) VALUES (?, ?, ?, ?);";
 
-        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getNumberOfParticipants(), tournament.getOrganizerId());
+        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getMaxNumberOfParticipants(), tournament.getCurrentNumberOfParticipants());
 
     }
 
     @Override
     public void updateTournament(int tournamentId, Tournament tournament) {
         String sql = "UPDATE tournament " +
-                "SET tournament_name=?, tournament_date=?, number_of_participants=? " +
+                "SET tournament_name=?, tournament_date=?, current_number_of_participants=? " +
                 "WHERE tournament_id=?;";
 
 
-        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getNumberOfParticipants(), tournamentId);
+        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getCurrentNumberOfParticipants(), tournamentId);
     }
 
     @Override
@@ -78,25 +78,15 @@ public class JdbcTournamentDao implements TournamentDao {
 
     }
 
-    @Override
-    public List<Tournament> getTournamentsByOrganizerId(int organizerId) {
-        List<Tournament> tournaments = new ArrayList<>();
-        String sql = "SELECT * FROM tournament WHERE organizer_id = ?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, organizerId);
-        while(results.next()) {
-            Tournament tournament = mapRowToTournament(results);
-            tournaments.add(tournament);
-        }
-        return tournaments;
-    }
+
 
     private Tournament mapRowToTournament(SqlRowSet rs) {
         Tournament tournament = new Tournament();
-        tournament.setNumberOfParticipants(rs.getInt("number_of_participants"));
+        tournament.setMaxNumberOfParticipants(rs.getInt("max_number_of_participants"));
         tournament.setTournamentDate(rs.getDate("tournament_date").toLocalDate());
         tournament.setTournamentId(rs.getInt("tournament_id"));
         tournament.setTournamentName(rs.getString("tournament_name"));
-        tournament.setOrganizerId(rs.getInt("organizer_id"));
+        tournament.setCurrentNumberOfParticipants(rs.getInt("current_number_of_participants"));
         return tournament;
     }
 
