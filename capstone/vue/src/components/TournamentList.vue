@@ -17,13 +17,13 @@
                 <td>{{ tournament.max_number_of_participants }}</td>&nbsp;|     &nbsp;
                 <td>{{ tournament.tournament_date }}</td>&nbsp;|     &nbsp;
                 <td>
-                <button v-on:click="signup(tournament.tournament_id)">Sign Up</button> 
+                <button v-on:click="getDetails(tournament.tournament_id)">Details</button> 
                 </td>
                 <!-- THIS STILL NEEDS METHOD  -->
             </tr>
         </tbody>
     </table>
-        
+        <!--<button v-if="tournament.current_number_of_participants < tournament.max_number_of_participants" v-on:click="signup(tournament.tournament_id)">Details</button> -->
 
       
   </div>
@@ -47,7 +47,10 @@ export default {
             apiService.list().then(response => {
                 this.$store.commit("SET_TOURNAMENTS", response.data);
             });
-    },
+        },
+        getDetails(id) {
+            this.$router.push({name: 'tournament-details', params: {id: id}})
+        }
     // deleteTopic(id) {
     //   topicService.delete(id).then( response => { --- maybe add later
     //     if (response.status === 200) {
