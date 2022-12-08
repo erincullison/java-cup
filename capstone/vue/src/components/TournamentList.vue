@@ -4,18 +4,18 @@
         <thead>
             <tr>
                 <th>Tournament Name</th>&nbsp;|     &nbsp;
-                <th>Date</th>&nbsp;|    &nbsp;
                 <th>Open Spots</th>&nbsp;|  &nbsp;
                 <th>Max Participants</th>&nbsp;|    &nbsp;
+                <th>Date</th>&nbsp;|    &nbsp;
                 <th>Sign Up</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="tournament in this.$store.state.tournaments" v-bind:key="tournament.tournament_id" v-bind:tournament="tournament" class="tournament">
                 <td class="name">{{ tournament.tournament_name }}</td>&nbsp;|     &nbsp;
-                <td>{{ tournament.tournament_date }}</td>&nbsp;|     &nbsp;
                 <td> {{ tournament.current_number_of_participants }} </td>&nbsp;|     &nbsp;
                 <td>{{ tournament.max_number_of_participants }}</td>&nbsp;|     &nbsp;
+                <td>{{ tournament.tournament_date }}</td>&nbsp;|     &nbsp;
                 <td>
                 <button v-on:click="signup(tournament.tournament_id)">Sign Up</button> 
                 </td>

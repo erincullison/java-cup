@@ -38,7 +38,7 @@ public class TournamentController {
 
 
     //this method should be accessible only to users with ROLE_ORGANIZER
-//    @PreAuthorize("hasRole('ADMIN')")
+//    @PreAuthorize("hasRole('ROLE_ORGANIZER')")
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping(path = "create", method = RequestMethod.POST)
     public void createTournament(@RequestBody Tournament tournament){
