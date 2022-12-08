@@ -12,13 +12,13 @@
         </thead>
         <tbody>
             <tr v-for="tournament in this.$store.state.tournaments" v-bind:key="tournament.tournament_id" v-bind:tournament="tournament" class="tournament">
-                <td class="name">{{ tournament.tournament_name }}</td>
-                <td>{{ tournament.tournament_date }}</td>
-                <td> {{ tournament.current_number_of_participants }} </td> 
-                <td>{{ tournament.max_number_of_participants }}</td>
-                <!-- <td>
-                <button v-on:click="signup(tournament.tournament_id)">Sign Up</button>; 
-                </td> -->
+                <td class="name">{{ tournament.tournament_name }}</td>&nbsp;|     &nbsp;
+                <td>{{ tournament.tournament_date }}</td>&nbsp;|     &nbsp;
+                <td> {{ tournament.current_number_of_participants }} </td>&nbsp;|     &nbsp;
+                <td>{{ tournament.max_number_of_participants }}</td>&nbsp;|     &nbsp;
+                <td>
+                <button v-on:click="signup(tournament.tournament_id)">Sign Up</button> 
+                </td>
                 <!-- THIS STILL NEEDS METHOD  -->
             </tr>
         </tbody>

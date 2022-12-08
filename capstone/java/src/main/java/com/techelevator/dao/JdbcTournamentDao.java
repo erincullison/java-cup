@@ -49,9 +49,9 @@ public class JdbcTournamentDao implements TournamentDao {
 
     @Override
     public void createTournament(Tournament tournament) {
-        String sql = "INSERT INTO tournament(tournament_name, tournament_date, max_number_of_participants, current_number_of_participants) VALUES (?, ?, ?, ?);";
+        String sql = "INSERT INTO tournament(tournament_name, tournament_date, max_number_of_participants) VALUES (?, ?, ?);";
 
-        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getMaxNumberOfParticipants(), tournament.getCurrentNumberOfParticipants());
+        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getMaxNumberOfParticipants());
 
     }
 

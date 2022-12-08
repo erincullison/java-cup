@@ -12,7 +12,7 @@ export default {
     return axios.get(`/tournaments/${id}`);
   },
   create(tournament) {
-    return axios.post('/tournaments', tournament)
+    return axios.post('/create', tournament)
   },
   update(tournamentId, tournament) {
     return axios.put(`/tournaments/${tournamentId}`, tournament);

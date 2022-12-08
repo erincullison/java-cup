@@ -10,7 +10,7 @@
     </div>
     <div class="field">
       <label for="content">Size</label>
-      <select v-model="tournament.number_of_participants">
+      <select v-model="tournament.max_number_of_participants">
           <option disabled value ="">Select one</option>
           <option value='4'>4</option>
           <option value='8'>8</option>
@@ -34,7 +34,7 @@ export default {
       tournament: {
         tournament_name: '',
         tournament_date: null,
-        number_of_participants: null
+        max_number_of_participants: null
       }
     };
   },
