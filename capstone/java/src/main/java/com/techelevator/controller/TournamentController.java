@@ -4,6 +4,7 @@ import com.techelevator.dao.TournamentDao;
 import com.techelevator.model.Tournament;
 import org.apache.tomcat.jni.Local;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
+//@PreAuthorize("isAuthenticated()") Maybe take it off?
 public class TournamentController {
     private TournamentDao tournamentDao;
 
@@ -39,7 +41,7 @@ public class TournamentController {
 
 
     //this method should be accessible only to users with ROLE_ORGANIZER
-
+//    @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping(path = "create", method = RequestMethod.POST)
     public void createTournament(@RequestBody Tournament tournament){
@@ -47,8 +49,8 @@ public class TournamentController {
     }
 
 
-    //this method should be accesible only to the organizer who created the tournament
-
+    //this method should be accessible only to the organizer who created the tournament
+   // @PreAuthorize("hasRole('ADMIN')")
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping(path = "tournaments/{tournamentId}", method= RequestMethod.PUT)
     public void updateTournament(@PathVariable int tournamentId, @RequestBody Tournament tournament){
