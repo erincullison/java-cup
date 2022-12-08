@@ -12,6 +12,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 //@PreAuthorize("isAuthenticated()") Maybe take it off?
 public class TournamentController {
     private TournamentDao tournamentDao;

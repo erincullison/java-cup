@@ -11,14 +11,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr v-for="tournament in this.$store.state.tournaments" v-bind:key="tournament.id" class="tournament">
-                <td class="name">{{ tournament.name }}</td>
-                <td>{{ tournament.date }}</td>
-                <td> Open Spots </td> <!-- this needs a method for open spots -->
-                <td>{{ tournament.maxParticipants }}</td>
-                <td>
-                <button v-on:click="signup(tournament.id)">Sign Up</button>;
-                </td>
+            <tr v-for="tournament in this.$store.state.tournaments" v-bind:key="tournament.tournament_id" v-bind:tournament="tournament" class="tournament">
+                <td class="name">{{ tournament.tournament_name }}</td>
+                <td>{{ tournament.tournament_date }}</td>
+                <td> {{ tournament.current_number_of_participants }} </td> 
+                <td>{{ tournament.max_number_of_participants }}</td>
+                <!-- <td>
+                <button v-on:click="signup(tournament.tournament_id)">Sign Up</button>; 
+                </td> -->
+                <!-- THIS STILL NEEDS METHOD  -->
             </tr>
         </tbody>
     </table>
@@ -42,6 +43,7 @@ export default {
     },
     methods: {
         listTournaments() {
+            console.log(this.$store.state.tournaments);
             apiService.list().then(response => {
                 this.$store.commit("SET_TOURNAMENTS", response.data);
             });
@@ -56,7 +58,7 @@ export default {
     },
     created() {
         this.listTournaments();
-     }
+    }
 
 
 }

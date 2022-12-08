@@ -1,13 +1,20 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.time.LocalDate;
 import java.util.Date;
 
 public class Tournament {
+    @JsonProperty("tournament_id")
     private int tournamentId;
+    @JsonProperty("tournament_name")
     private String tournamentName;
+    @JsonProperty("tournament_date")
     private LocalDate tournamentDate;
+    @JsonProperty("max_number_of_participants")
     private int maxNumberOfParticipants;
+    @JsonProperty("current_number_of_participants")
     private int currentNumberOfParticipants;
 
 
