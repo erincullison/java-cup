@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.security.Principal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -41,8 +42,8 @@ public class TournamentController {
     @PreAuthorize("hasRole('ROLE_ORGANIZER')")
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping(path = "create", method = RequestMethod.POST)
-    public void createTournament(@RequestBody Tournament tournament){
-        tournamentDao.createTournament(tournament);
+    public void createTournament(@RequestBody Tournament tournament, Principal principal){
+        tournamentDao.createTournament(tournament, principal);
     }
 
 

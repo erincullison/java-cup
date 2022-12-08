@@ -1,11 +1,13 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Tournament;
+import com.techelevator.security.UserModelDetailsService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 
+import java.security.Principal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,9 +16,10 @@ import java.util.List;
 public class JdbcTournamentDao implements TournamentDao {
 
     private final JdbcTemplate jdbcTemplate;
-
-    public JdbcTournamentDao(JdbcTemplate jdbcTemplate) {
+    UserDao userDao;
+    public JdbcTournamentDao(JdbcTemplate jdbcTemplate, UserDao userDao) {
         this.jdbcTemplate = jdbcTemplate;
+        this.userDao = userDao;
     }
 
     @Override
@@ -48,11 +51,19 @@ public class JdbcTournamentDao implements TournamentDao {
     }
 
     @Override
-    public void createTournament(Tournament tournament) {
-        String sql = "INSERT INTO tournament(tournament_name, tournament_date, max_number_of_participants) VALUES (?, ?, ?);";
+    public void createTournament(Tournament tournament, Principal principal) {
+        //adding new tournament to tournament table
+        String sqlAddToTournamentTable = "INSERT INTO tournament(tournament_name, tournament_date, max_number_of_participants) VALUES (?, ?, ?);";
+        jdbcTemplate.update(sqlAddToTournamentTable, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getMaxNumberOfParticipants());
 
-        jdbcTemplate.update(sql, tournament.getTournamentName(), tournament.getTournamentDate(), tournament.getMaxNumberOfParticipants());
+        //getting the id of the tournament we just created
+        String sqlFindTournamentId = "SELECT tournament_id from tournament where tournament_name = ?";
+        int tournamentId = jdbcTemplate.queryForObject(sqlFindTournamentId, int.class, tournament.getTournamentName());
 
+        //adding current user id and tournament id to user_tournament table
+        int organizerId = userDao.findIdByUsername(principal.getName());
+        String sql = "INSERT INTO organizer_tournament(organizer_id, tournament_id) VALUES (?, ?);";
+        jdbcTemplate.update(sql, organizerId, tournamentId);
     }
 
     @Override
