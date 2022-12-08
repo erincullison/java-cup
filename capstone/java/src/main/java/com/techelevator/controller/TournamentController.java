@@ -38,7 +38,7 @@ public class TournamentController {
 
 
     //this method should be accessible only to users with ROLE_ORGANIZER
-//    @PreAuthorize("hasRole('ROLE_ORGANIZER')")
+    @PreAuthorize("hasRole('ROLE_ORGANIZER')")
     @ResponseStatus (HttpStatus.CREATED)
     @RequestMapping(path = "create", method = RequestMethod.POST)
     public void createTournament(@RequestBody Tournament tournament){
@@ -54,7 +54,9 @@ public class TournamentController {
         tournamentDao.updateTournament(tournamentId, tournament);
     }
 
+    //NEEDS UPDATE METHOD FOR USERS TO SIGN UP AND UPDATE COUNT
 
+    //NEED TO ADD METHOD TO UPDATE USER AND ORGANIZER JOIN TABLES WHEN CREATING/SIGNING UP -probably in dao
 
 
 
