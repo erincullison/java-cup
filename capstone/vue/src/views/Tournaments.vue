@@ -11,6 +11,7 @@
 import TournamentList from "../components/TournamentList.vue";
 
 export default {
+  name: 'tournaments-list',
   components: { TournamentList },
 
 }
