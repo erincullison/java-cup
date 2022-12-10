@@ -15,5 +15,7 @@ public interface TournamentDao {
     void updateTournament(int tournamentId, Tournament tournament);
     List<Tournament> searchByTournamentName(String search);
     void addUserToTournament(int tournamentId, Principal principal);
+    List<User> getUsersByTournamentId(int tournamentId);
+
 
 }

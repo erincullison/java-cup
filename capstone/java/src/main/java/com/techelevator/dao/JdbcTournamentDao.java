@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Tournament;
+import com.techelevator.model.User;
 import com.techelevator.security.UserModelDetailsService;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -105,6 +106,19 @@ public class JdbcTournamentDao implements TournamentDao {
 
     }
 
+    //adding a method to get the list of users for the initial round of the tournament bracket
+    @Override
+    public List<User> getUsersByTournamentId(int tournamentId) {
+        List<User> users = new ArrayList<>();
+        String sql = "select user_tournament.user_id, users.username from user_tournament join users on users.user_id = user_tournament.user_id where tournament_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, tournamentId);
+        while(results.next()) {
+            User user = mapRowToUser(results);
+            users.add(user);
+        }
+        return users;
+    }
+
 
     private Tournament mapRowToTournament(SqlRowSet rs) {
         Tournament tournament = new Tournament();
@@ -114,6 +128,13 @@ public class JdbcTournamentDao implements TournamentDao {
         tournament.setTournamentName(rs.getString("tournament_name"));
         tournament.setCurrentNumberOfParticipants(rs.getInt("current_number_of_participants"));
         return tournament;
+    }
+
+    private User mapRowToUser(SqlRowSet rs) {
+        User user = new User();
+        user.setUsername(rs.getString("username"));
+        user.setId(rs.getInt("user_id"));
+        return user;
     }
 
 

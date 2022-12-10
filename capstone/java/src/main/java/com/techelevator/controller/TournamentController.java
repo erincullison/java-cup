@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.TournamentDao;
 import com.techelevator.model.Tournament;
+import com.techelevator.model.User;
 import org.apache.tomcat.jni.Local;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -33,6 +34,11 @@ public class TournamentController {
     @RequestMapping (path = "tournaments", method= RequestMethod.GET)
     public List<Tournament> getTournamentsByName(@RequestParam(value="title_like", defaultValue = "") String search){
         return tournamentDao.searchByTournamentName(search);
+    }
+
+    @RequestMapping (path = "tournaments/{tournamentId}/users", method= RequestMethod.GET)
+    public List<User> getUsersByTournamentId(@PathVariable int tournamentId) {
+        return tournamentDao.getUsersByTournamentId(tournamentId);
     }
 
 

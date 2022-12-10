@@ -1,6 +1,6 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users, tournament, user_tournament, organizer_tournament CASCADE;
+DROP TABLE IF EXISTS users, tournament, organizer_tournament, participant_name, game, tournament_id CASCADE;
 
 CREATE TABLE users (
 	user_id SERIAL,
@@ -18,14 +18,6 @@ CREATE TABLE tournament (
 	current_number_of_participants integer DEFAULT 0,
 	CONSTRAINT PK_tournament PRIMARY KEY(tournament_id)
 );
-CREATE TABLE user_tournament (
-	user_id integer,
-	tournament_id integer NOT NULL UNIQUE,
-	CONSTRAINT PK_user_tournament PRIMARY KEY (user_id, tournament_id),
-	CONSTRAINT FK_user_tournament_user FOREIGN KEY (user_id) REFERENCES users(user_id),
-	CONSTRAINT FK_user_tournament_tournament FOREIGN KEY (tournament_id) REFERENCES tournament(tournament_id)
-
-);
 
 CREATE TABLE organizer_tournament (
 	organizer_id integer,
@@ -34,6 +26,30 @@ CREATE TABLE organizer_tournament (
 	CONSTRAINT FK_organizer_tournament_user FOREIGN KEY (organizer_id) REFERENCES users(user_id),
 	CONSTRAINT FK_organizer_tournament_tournament FOREIGN KEY (tournament_id) REFERENCES tournament(tournament_id)
 
+);
+
+CREATE TABLE participant_name (
+	name_id SERIAL,
+	name varchar(100),
+	CONSTRAINT PK_name PRIMARY KEY (name_id)
+);
+
+CREATE TABLE game (
+	game_id SERIAL,
+	game_number integer NOT NULL,
+	participant_one integer,
+	participant_two integer,
+	CONSTRAINT PK_game PRIMARY KEY (game_id),
+	CONSTRAINT FK_game_participant_one FOREIGN KEY (participant_one) REFERENCES participant_name(name_id),
+	CONSTRAINT FK_game_participant_two FOREIGN KEY (participant_two) REFERENCES participant_name(name_id)
+);
+
+CREATE TABLE tournament_game (
+	tournament_id integer,
+	game_id integer,
+	CONSTRAINT PK_tournament_game PRIMARY KEY (tournament_id, game_id),
+	CONSTRAINT FK_tournament_game_tournament FOREIGN KEY (tournament_id) REFERENCES tournament(tournament_id),
+	CONSTRAINT FK_tournament_game_game FOREIGN KEY (game_id) REFERENCES game(game_id)
 );
 
 COMMIT TRANSACTION;
