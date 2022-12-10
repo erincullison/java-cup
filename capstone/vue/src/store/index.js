@@ -22,18 +22,8 @@ export default new Vuex.Store({
     user: currentUser || {},
 
     //TOURNAMENTS ARRAY -- list from DB
-    tournaments: [],
-    currentTournament: {
-      name: '',
-      id: null,
-      date: null,
-      participants: [],
-      maxParticipants: null
-    },
-
-    //EMPTY TOURNAMENT TO HOLD CURRENT DETAILS
-    currentTourneyId: 0,
-    currentTourneyDetails: {},
+    tournaments: []
+    
 
   },
   mutations: {
