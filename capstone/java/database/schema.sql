@@ -36,20 +36,15 @@ CREATE TABLE participant_name (
 
 CREATE TABLE game (
 	game_id SERIAL,
+	tournament_id integer,
 	game_number integer NOT NULL,
 	participant_one integer,
 	participant_two integer,
 	CONSTRAINT PK_game PRIMARY KEY (game_id),
 	CONSTRAINT FK_game_participant_one FOREIGN KEY (participant_one) REFERENCES participant_name(name_id),
-	CONSTRAINT FK_game_participant_two FOREIGN KEY (participant_two) REFERENCES participant_name(name_id)
+	CONSTRAINT FK_game_participant_two FOREIGN KEY (participant_two) REFERENCES participant_name(name_id),
+	CONSTRAINT FK_game_tournament FOREIGN KEY (tournament_id) REFERENCES tournament(tournament_id)
 );
 
-CREATE TABLE tournament_game (
-	tournament_id integer,
-	game_id integer,
-	CONSTRAINT PK_tournament_game PRIMARY KEY (tournament_id, game_id),
-	CONSTRAINT FK_tournament_game_tournament FOREIGN KEY (tournament_id) REFERENCES tournament(tournament_id),
-	CONSTRAINT FK_tournament_game_game FOREIGN KEY (game_id) REFERENCES game(game_id)
-);
 
 COMMIT TRANSACTION;

@@ -8,14 +8,12 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface TournamentDao {
-    List<Tournament> findAll();
 
+    List<Tournament> findAll();
     Tournament getTournamentById(int tournamentId);
     void createTournament(Tournament tournament, Principal principal);
     void updateTournament(int tournamentId, Tournament tournament);
     List<Tournament> searchByTournamentName(String search);
-    void addUserToTournament(int tournamentId, Principal principal);
-    List<User> getUsersByTournamentId(int tournamentId);
 
 
 }

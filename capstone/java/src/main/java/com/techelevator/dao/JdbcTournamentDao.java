@@ -65,6 +65,8 @@ public class JdbcTournamentDao implements TournamentDao {
         int organizerId = userDao.findIdByUsername(principal.getName());
         String sql = "INSERT INTO organizer_tournament(organizer_id, tournament_id) VALUES (?, ?);";
         jdbcTemplate.update(sql, organizerId, tournamentId);
+
+        //After we add a new tournament, we will need to populate "game" 
     }
 
     @Override
@@ -90,34 +92,8 @@ public class JdbcTournamentDao implements TournamentDao {
 
     }
 
-    @Override
-    public void addUserToTournament(int tournamentId, Principal principal) {
-        //increases current number of participants by 1
-         String sql = "UPDATE tournament " +
-                "SET current_number_of_participants = current_number_of_participants + 1 " +
-                "WHERE tournament_id=?";
-        jdbcTemplate.update(sql, tournamentId);
-
-        //add user to the user_tournaments table
-        int userId = userDao.findIdByUsername(principal.getName());
-        String sqlAddToUserTournament = "INSERT INTO user_tournament(user_id, tournament_id) VALUES (?, ?);";
-        jdbcTemplate.update(sqlAddToUserTournament, userId, tournamentId);
 
 
-    }
-
-    //adding a method to get the list of users for the initial round of the tournament bracket
-    @Override
-    public List<User> getUsersByTournamentId(int tournamentId) {
-        List<User> users = new ArrayList<>();
-        String sql = "select user_tournament.user_id, users.username from user_tournament join users on users.user_id = user_tournament.user_id where tournament_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, tournamentId);
-        while(results.next()) {
-            User user = mapRowToUser(results);
-            users.add(user);
-        }
-        return users;
-    }
 
 
     private Tournament mapRowToTournament(SqlRowSet rs) {
@@ -128,13 +104,6 @@ public class JdbcTournamentDao implements TournamentDao {
         tournament.setTournamentName(rs.getString("tournament_name"));
         tournament.setCurrentNumberOfParticipants(rs.getInt("current_number_of_participants"));
         return tournament;
-    }
-
-    private User mapRowToUser(SqlRowSet rs) {
-        User user = new User();
-        user.setUsername(rs.getString("username"));
-        user.setId(rs.getInt("user_id"));
-        return user;
     }
 
 
