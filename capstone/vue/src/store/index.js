@@ -21,7 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
 
-    //TOURNAMENTS ARRAY -- how do we load in list from DB?
+    //TOURNAMENTS ARRAY -- list from DB
     tournaments: [],
     currentTournament: {
       name: '',
@@ -29,7 +29,11 @@ export default new Vuex.Store({
       date: null,
       participants: [],
       maxParticipants: null
-    }
+    },
+
+    //EMPTY TOURNAMENT TO HOLD CURRENT DETAILS
+    currentTourneyId: 0,
+    currentTourneyDetails: {},
 
   },
   mutations: {
@@ -56,6 +60,17 @@ export default new Vuex.Store({
     SET_ACTIVE_TOURNAMENT(state, data) {
       state.currentTournament = data;
     },
+
+    //NEW MUTATIONS FOR WORKING TOURNEY ID AND DETAILS - NEEDS REVIEW
+    SET_CURRENT_TOURNAMENT_ID(state, data) {
+      state.currentTourneyId = data;
+    },
+    SET_CURRENT_TOURNAMENT_DETAILS(state, data) {
+      state.currentTourneyDetails = data;
+    },
+
+
+    
     // DELETE_TOURNAMENT(state, id) {
     //   state.currentTournament.splice(
     //     state.tournaments.findIndex(tournament => tournament.id === id),

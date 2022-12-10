@@ -8,7 +8,7 @@ import store from '../store/index'
 
 //IMPORTS NEW VIEWS HERE
 import Tournaments from '../views/Tournaments.vue'
-import CreateTournament from '../views/CreateTournament.vue'
+import Create from '../views/Create.vue'
 import TournamentDetails from '../views/TournamentDetails.vue'
 
 
@@ -74,11 +74,12 @@ const router = new Router({
     {
       path: "/create-tournament",
       name: "create-tournament",
-      component: CreateTournament,
+      component: Create,
       meta: {
         requiresAuth: true
       }
     },
+    //ROUTE TO CURRENT TOURNAMENT
     {
       path: "/tournaments/:id",
       name: "tournament-details",

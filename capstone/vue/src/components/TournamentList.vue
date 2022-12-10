@@ -43,12 +43,14 @@ export default {
     },
     methods: {
         listTournaments() {
-            console.log(this.$store.state.tournaments);
+            // console.log(this.$store.state.tournaments);
             apiService.list().then(response => {
                 this.$store.commit("SET_TOURNAMENTS", response.data);
             });
         },
         getDetails(id) {
+            //Add this one line below to try setting the current tournament's id when clicking on details button
+            this.$store.commit("SET_CURRENT_TOURNAMENT_ID", id);
             this.$router.push({name: 'tournament-details', params: {id: id}})
         }
     // deleteTopic(id) {
