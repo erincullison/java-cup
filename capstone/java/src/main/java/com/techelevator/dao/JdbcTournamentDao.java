@@ -66,7 +66,7 @@ public class JdbcTournamentDao implements TournamentDao {
         String sql = "INSERT INTO organizer_tournament(organizer_id, tournament_id) VALUES (?, ?);";
         jdbcTemplate.update(sql, organizerId, tournamentId);
 
-        //After we add a new tournament, we will need to populate "game" 
+        //After we add a new tournament, we will need to populate "game"
     }
 
     @Override

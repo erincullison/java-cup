@@ -36,10 +36,7 @@ public class TournamentController {
         return tournamentDao.searchByTournamentName(search);
     }
 
-    @RequestMapping (path = "tournaments/{tournamentId}/users", method= RequestMethod.GET)
-    public List<User> getUsersByTournamentId(@PathVariable int tournamentId) {
-        return tournamentDao.getUsersByTournamentId(tournamentId);
-    }
+
 
 
 
@@ -61,11 +58,6 @@ public class TournamentController {
         tournamentDao.updateTournament(tournamentId, tournament);
     }
 
-    //NEEDS UPDATE METHOD FOR USERS TO SIGN UP AND UPDATE COUNT
-    @RequestMapping(path = "tournaments/{tournamentId}", method= RequestMethod.POST)
-    public void addUserToTournament(@PathVariable int tournamentId, Principal principal){
-        tournamentDao.addUserToTournament(tournamentId, principal);
-    }
 
     //NEED TO ADD METHOD TO UPDATE USER AND ORGANIZER JOIN TABLES WHEN CREATING/SIGNING UP -probably in dao
 
