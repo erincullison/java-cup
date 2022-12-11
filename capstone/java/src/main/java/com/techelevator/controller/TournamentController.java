@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.GameDao;
 import com.techelevator.dao.TournamentDao;
 import com.techelevator.model.Tournament;
 import com.techelevator.model.User;
@@ -18,11 +19,12 @@ import java.util.List;
 //@PreAuthorize("isAuthenticated()") Maybe take it off?
 public class TournamentController {
     private TournamentDao tournamentDao;
+    private GameDao gameDao;
 
-    public TournamentController(TournamentDao tournamentDao) {
+    public TournamentController(TournamentDao tournamentDao, GameDao gameDao) {
         this.tournamentDao = tournamentDao;
+        this.gameDao = gameDao;
     }
-
 
     //the following three methods should be accessible to any user without signing in
 
@@ -59,7 +61,13 @@ public class TournamentController {
     }
 
 
-    //NEED TO ADD METHOD TO UPDATE USER AND ORGANIZER JOIN TABLES WHEN CREATING/SIGNING UP -probably in dao
+    //adding signup method
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path ="tournaments/{tournamentId}", method = RequestMethod.POST)
+    public void addParticipantToTournament(@PathVariable int tournamentId, @RequestBody String name){
+        gameDao.addParticipantToTournament(tournamentId, name);
+    }
+
 
 
 

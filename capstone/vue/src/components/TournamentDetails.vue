@@ -49,7 +49,7 @@ export default {
         apiService.get(this.$route.params.id).then((response) => {
             this.tournament = response.data;
         });
-        //this tournament id have already been updated in the above call but I added directly from the route params to be safe.
+        //this tournament id might have already been updated in the above call but I added directly from the route params to be safe.
         this.tournament_id = this.$route.params.id
     }
     
