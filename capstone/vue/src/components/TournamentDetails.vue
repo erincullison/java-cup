@@ -4,6 +4,8 @@
       <h2>{{ tournament.tournament_date }}</h2>
       <h3>{{ tournament.current_number_of_participants }} / 
           {{ tournament.max_number_of_participants }}</h3>
+    <button v-on:click='joinTournament' v-bind:disabled="tournament.current_number_of_participants=== tournament.max_number_of_participants">Join Tournament</button>
+          
   </div>
 </template>
 
@@ -30,7 +32,13 @@ export default {
     },
     
 
- /*   methods: {
+    methods: {
+
+
+        joinTournament(){
+            this.$router.push({name: 'join-tournament', params: {id: this.$route.params.id}});
+        }
+        /*
         //tried this set the current tourney object ??
          this was a good idea and honestly I'm not sure why it didn't work. All the calls to update the store 
          seemed logical to me. But, this gives us access to the tournament without making edits to the store. 
@@ -41,8 +49,9 @@ export default {
                 this.$store.commit("SET_CURRENT_TOURNAMENT_DETAILS", response.data);
             });
         },
+        */
     },
-    */
+    
 
     created() {
         //calls axios method, passing the id from route params, and returns a tournament object JSON

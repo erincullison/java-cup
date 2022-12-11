@@ -19,5 +19,8 @@ export default {
   },
   delete(tournamentID) {
     return axios.delete(`/tournaments/${tournamentID}`);
+  },
+  join(tournamentId, participant_name) {
+    return axios.post(`/tournaments/${tournamentId}`, participant_name);
   }
 }

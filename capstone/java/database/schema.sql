@@ -30,7 +30,7 @@ CREATE TABLE organizer_tournament (
 
 CREATE TABLE participant_name (
 	name_id SERIAL,
-	name varchar(100) NOT NULL UNIQUE,
+	name varchar(100) NOT NULL,
 	CONSTRAINT PK_name PRIMARY KEY (name_id)
 );
 

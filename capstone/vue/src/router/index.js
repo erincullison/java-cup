@@ -10,6 +10,7 @@ import store from '../store/index'
 import Tournaments from '../views/Tournaments.vue'
 import Create from '../views/Create.vue'
 import TournamentDetails from '../views/TournamentDetails.vue'
+import Join from '../views/Join.vue'
 
 
 
@@ -88,6 +89,16 @@ const router = new Router({
         requiresAuth: false
       }
 
+    },
+
+    //ROUTE TO JOIN TOURNAMENT FORM
+    {
+      path:"tournaments/:id/join",
+      name: "join-tournament",
+      component: Join,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
