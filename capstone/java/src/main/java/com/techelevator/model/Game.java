@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Game {
     @JsonProperty("game_id")
     private int gameId;
+    @JsonProperty("tournament_id")
+    private int tournamentId;
     @JsonProperty("game_number")
     private int gameNumber;
     @JsonProperty("participant_one")
@@ -12,8 +14,10 @@ public class Game {
     @JsonProperty("participant_two")
     private int participantTwo;
 
-    public Game(int gameId, int gameNumber, int participantOne, int participantTwo) {
+
+    public Game(int gameId, int tournamentId, int gameNumber, int participantOne, int participantTwo) {
         this.gameId = gameId;
+        this.tournamentId = tournamentId;
         this.gameNumber = gameNumber;
         this.participantOne = participantOne;
         this.participantTwo = participantTwo;
@@ -52,5 +56,13 @@ public class Game {
 
     public void setParticipantTwo(int participantTwo) {
         this.participantTwo = participantTwo;
+    }
+
+    public int getTournamentId() {
+        return tournamentId;
+    }
+
+    public void setTournamentId(int tournamentId) {
+        this.tournamentId = tournamentId;
     }
 }

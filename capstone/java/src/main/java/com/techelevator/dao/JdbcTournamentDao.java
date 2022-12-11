@@ -67,6 +67,10 @@ public class JdbcTournamentDao implements TournamentDao {
         jdbcTemplate.update(sql, organizerId, tournamentId);
 
         //After we add a new tournament, we will need to populate "game"
+        String sqlAddGames = "INSERT INTO game(tournament_id, game_number) VALUES (?,?);";
+        for(int i=1; i<=tournament.getMaxNumberOfParticipants(); i++){
+            jdbcTemplate.update(sqlAddGames, tournamentId, i);
+        }
     }
 
     @Override
