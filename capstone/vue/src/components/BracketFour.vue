@@ -73,6 +73,7 @@ export default {
 
 .bracket {
     display: flex;
+    background-image: url('/src/assets/4bracket-1.jpg');
     
 }
 
