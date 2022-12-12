@@ -1,5 +1,5 @@
 <template>
-  <form v-on:submit.prevent>
+  <form v-on:submit.prevent class="create-form">
     <div class="field">
       <label for="name">Tournament Name</label>
       <input type="text" v-model="tournament.tournament_name" />
@@ -59,10 +59,16 @@ export default {
 </script>
 
 <style scoped>
+
+
+
 form {
   padding: 20px;
   font-size: 16px;
-  width: 500px;
+  width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
 }
 form * {
   box-sizing: border-box;
@@ -71,6 +77,7 @@ form * {
 .field {
   display: flex;
   flex-direction: column;
+  
 }
 .field label {
   margin: 4px 0;
@@ -84,7 +91,7 @@ form * {
   height: 300px;
 }
 .actions {
-  text-align: right;
+  text-align: center;
   padding: 10px 0;
 }
 </style>

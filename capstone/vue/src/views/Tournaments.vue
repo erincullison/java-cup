@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="full-list">
     <h1>ACTIVE TOURNAMENTS</h1>
     <tournament-list />
   </div>  
@@ -18,5 +18,14 @@ export default {
 </script>
 
 <style>
+
+
+
+.full-list {
+  text-align: center;
+  font-size: 25px;
+}
+
+
 
 </style>

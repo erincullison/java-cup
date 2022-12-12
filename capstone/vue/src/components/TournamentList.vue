@@ -3,19 +3,18 @@
       <table>
         <thead>
             <tr>
-                <th>Tournament Name</th>&nbsp;|     &nbsp;
-                <th>Open Spots</th>&nbsp;|  &nbsp;
-                <th>Max Participants</th>&nbsp;|    &nbsp;
-                <th>Date</th>&nbsp;|    &nbsp;
-                <th>Sign Up</th>
+                <th>Tournament Name</th>
+                <th>Current Participants</th>
+                <th>Max Participants</th>
+                <th>Date</th>
             </tr>
         </thead>
         <tbody>
             <tr v-for="tournament in this.$store.state.tournaments" v-bind:key="tournament.tournament_id" v-bind:tournament="tournament" class="tournament">
-                <td class="name">{{ tournament.tournament_name }}</td>&nbsp;|     &nbsp;
-                <td> {{ tournament.current_number_of_participants }} </td>&nbsp;|     &nbsp;
-                <td>{{ tournament.max_number_of_participants }}</td>&nbsp;|     &nbsp;
-                <td>{{ tournament.tournament_date }}</td>&nbsp;|     &nbsp;
+                <td class="name">{{ tournament.tournament_name }}</td>
+                <td> {{ tournament.current_number_of_participants }} </td>
+                <td>{{ tournament.max_number_of_participants }}</td>
+                <td>{{ tournament.tournament_date }}</td>
                 <td>
                 <button v-on:click="getDetails(tournament.tournament_id)">Details</button> 
                 </td>
@@ -70,5 +69,25 @@ export default {
 </script>
 
 <style>
+
+table {
+    width: 75%;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+th {
+    font-size: 25px;
+    text-decoration-line: underline;
+    padding: 10px;
+    text-align: center;
+    
+}
+
+tbody {
+    font-size: 18px;
+}
 
 </style>

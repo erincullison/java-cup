@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="join-page">
       <h1>Join Tournament</h1>
       <join-tournament />
   </div>
@@ -14,5 +14,9 @@ export default {
 </script>
 
 <style>
+
+h1 {
+  text-align: center;
+}
 
 </style>

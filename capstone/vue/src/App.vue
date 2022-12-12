@@ -9,3 +9,20 @@
     <router-view />
   </div>
 </template>
+
+<style>
+
+#nav {
+  text-align: center;
+  font-size: 25px;
+}
+
+html {
+  background-color: #C9D7F8;
+  font-family: 'Bebas Neue', cursive;
+  
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+</style>

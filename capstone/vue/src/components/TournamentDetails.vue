@@ -1,17 +1,27 @@
 <template>
   <div class="tournament-details">
-      <h1>{{ tournament.tournament_name }}</h1>
-      <h2>{{ tournament.tournament_date }}</h2>
-      <h3>{{ tournament.current_number_of_participants }} / 
+      <section class="top-section">
+        <h1>Tournament Name:<br>{{ tournament.tournament_name }}</h1>
+        <h2>Date of Tournament:<br>{{ tournament.tournament_date }}</h2>
+      </section>
+      
+      <h3>Current # of Participants: {{ tournament.current_number_of_participants }} / 
           {{ tournament.max_number_of_participants }}</h3>
     <button v-on:click='joinTournament' v-bind:disabled="tournament.current_number_of_participants=== tournament.max_number_of_participants">Join Tournament</button>
-          
+    <!-- ADD BELOW THE DIFFERENT BRACKETS -->
+    <section v-if="tournament.max_number_of_participants = 8">
+        <bracket-eight />
+    </section>
   </div>
 </template>
 
 <script>
 import apiService from '../services/apiService'
+import BracketEight from '../components/BracketEight.vue'
+
+
 export default {
+  components: { BracketEight },
     name: 'tournament-details',
     data() {
         return {
@@ -67,5 +77,22 @@ export default {
 </script>
 
 <style>
+
+.top-section {
+    display: flex;
+}
+
+h1 {
+    flex-basis: 50%;
+    
+}
+
+h2 {
+    flex-basis: 50%;
+    
+}
+
+
+
 
 </style>

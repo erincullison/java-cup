@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="create-page">
       <h1>Create Tournament</h1>
       <add-tournament />
   </div>
@@ -14,5 +14,9 @@ export default {
 </script>
 
 <style>
+
+.create-page {
+  text-align: center;
+}
 
 </style>

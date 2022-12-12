@@ -27,4 +27,9 @@ export default {
 
 <style>
 
+.tournament-details {
+  text-align: center;
+  font-size: 23px;
+}
+
 </style>

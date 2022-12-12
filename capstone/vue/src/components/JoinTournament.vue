@@ -46,6 +46,9 @@ form {
   padding: 20px;
   font-size: 16px;
   width: 500px;
+  margin-top: 200px;
+  margin-right: auto;
+  margin-left: auto;
 }
 form * {
   box-sizing: border-box;
@@ -67,7 +70,7 @@ form * {
   height: 300px;
 }
 .actions {
-  text-align: right;
+  text-align: center;
   padding: 10px 0;
 }
 </style>
