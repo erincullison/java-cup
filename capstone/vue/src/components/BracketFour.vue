@@ -13,12 +13,6 @@
             </ul>
         </section>
         <section>
-            <p>Round Three</p>
-            <ul class="round-three" v-for="player in round_three" v-bind:key="player">
-                <li> {{player}} </li>
-            </ul>
-        </section>
-        <section>
             <p>Winner</p>
             <ul class="winner">
                 <li> {{final_winner}} </li>
@@ -31,12 +25,11 @@
 
 <script>
 export default {
-    name: 'bracket-eight',
+    name: 'bracket-four',
     data() {
         return {
-            round_one: ['player 1', 'player 2', 'player 3', 'player 4', 'player 5', 'player 6', 'player 7', 'player 8'],
-            round_two: ['----', '----', '----', '----',],
-            round_three: ['----', '----',],
+            round_one: ['player 1', 'player 2', 'player 3', 'player 4'],
+            round_two: ['----', '----'],
             final_winner: '----',
 
 
@@ -63,8 +56,7 @@ export default {
             //             player2: { id: "8", name: "Competitor 8", winner: false },
             //         }
             //     ]
-            // }
-            // ]
+            // } ]
         
             
         

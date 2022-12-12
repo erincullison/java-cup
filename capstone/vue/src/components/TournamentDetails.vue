@@ -9,19 +9,28 @@
           {{ tournament.max_number_of_participants }}</h3>
     <button v-on:click='joinTournament' v-bind:disabled="tournament.current_number_of_participants=== tournament.max_number_of_participants">Join Tournament</button>
     <!-- ADD BELOW THE DIFFERENT BRACKETS -->
-    <section v-if="tournament.max_number_of_participants = 8">
+    <section v-if="tournament.max_number_of_participants === 8">
         <bracket-eight />
     </section>
+    <section v-if="tournament.max_number_of_participants === 4">
+        <bracket-four />
+    </section>
+    <section v-if="tournament.max_number_of_participants === 16">
+        <bracket-sixteen />
+    </section>
+
   </div>
 </template>
 
 <script>
 import apiService from '../services/apiService'
 import BracketEight from '../components/BracketEight.vue'
+import BracketFour from './BracketFour.vue'
+import BracketSixteen from './BracketSixteen.vue'
 
 
 export default {
-  components: { BracketEight },
+  components: { BracketEight, BracketFour, BracketSixteen },
     name: 'tournament-details',
     data() {
         return {
