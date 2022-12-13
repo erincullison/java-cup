@@ -4,15 +4,15 @@
       <ul class="round round-1">
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top ">{{this.$store.state.games[0].participant_one}}</li>
+        <li class="game game-top">{{this.$store.state.games[0].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li><!--Space between player 1 and player 2-->
-        <li class="game game-bottom ">{{this.$store.state.games[0].participant_two}}</li>
+        <li class="game game-bottom">{{this.$store.state.games[0].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li><!--Space between one match and the other-->
         
         <li class="game game-top">{{this.$store.state.games[1].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">{{this.$store.state.games[1].participant_two}}</li>
+        <li class="game game-bottom">{{this.$store.state.games[1].participant_two}}</li>
 
       </ul>
       <ul class="round round-2">
@@ -20,7 +20,7 @@
         
         <li class="game game-top">{{this.$store.state.games[2].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">{{this.$store.state.games[2].participant_two}}</li>
+        <li class="game game-bottom">{{this.$store.state.games[2].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
