@@ -69,7 +69,7 @@ form {
   font-size: 25px;
   backdrop-filter: blur(1px);
   box-shadow: 20px 20px;
-  
+  border: solid 1px;
   
   
 }

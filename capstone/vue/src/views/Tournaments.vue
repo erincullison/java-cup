@@ -24,6 +24,7 @@ export default {
 .full-list {
   text-align: center;
   font-size: 25px;
+  
 }
 
 

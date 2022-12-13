@@ -15,7 +15,7 @@
                 <td> {{ tournament.current_number_of_participants }} </td>
                 <td>{{ tournament.max_number_of_participants }}</td>
                 <td>{{ tournament.tournament_date }}</td>
-                <td>
+                <td class="button">
                 <button v-on:click="getDetails(tournament.tournament_id)">Details</button> 
                 </td>
                 <!-- THIS STILL NEEDS METHOD  -->
@@ -75,6 +75,8 @@ table {
     margin-top: 50px;
     margin-left: auto;
     margin-right: auto;
+    border-collapse: separate;
+    border-spacing: 0 35px;
     
 }
 
@@ -88,6 +90,29 @@ th {
 
 tbody {
     font-size: 18px;
+    background-color: rgb(251, 238, 197);
+}
+
+.tournament {
+    border: solid 1px;
+    
+}
+
+td {
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
+
+td.name {
+    border-left: solid 1px;
+}
+
+td.button {
+    border-right: solid 1px;
+}
+
+button {
+    border: solid 1px;
 }
 
 </style>
