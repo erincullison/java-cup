@@ -26,12 +26,12 @@ public class JdbcGameDao implements GameDao{
     @Override
     public void addParticipantToTournament(int tournamentId, String name) {
         //adding name to name table
-        String sqlAddToNameTable = "BEGIN TRANSACTION; INSERT INTO participant_name(name) VALUES (?); COMMIT TRANSACTION";
-        jdbcTemplate.update(sqlAddToNameTable, name);
+        //String sqlAddToNameTable = "BEGIN TRANSACTION; INSERT INTO participant_name(name) VALUES (?); COMMIT TRANSACTION";
+        //jdbcTemplate.update(sqlAddToNameTable, name);
 
         //getting the id of the name we just created
-        String sqlGetNameId = "SELECT name_id from participant_name where name = ?";
-        int nameId = jdbcTemplate.queryForObject(sqlGetNameId, int.class, name);
+        //String sqlGetNameId = "SELECT name_id from participant_name where name = ?";
+        //int nameId = jdbcTemplate.queryForObject(sqlGetNameId, int.class, name);
 
         //now we need to add the nameId to the first open spot in a tournament... this is going to be trickier.
         /* Here's my thought process so far:
@@ -59,21 +59,21 @@ public class JdbcGameDao implements GameDao{
 
 
 	        Update: this *technically* works. Right now, my logic is set up so that the name_id is added to the first open slot, but it checks slot 1 for every gme before
-
+            Fixed this! Needed to add order by game_number in first sql query below
 
          */
 
         Tournament currentTournament = tournamentDao.getTournamentById(tournamentId);
-        String sqlFindEmptySpots = "SELECT * FROM game  WHERE tournament_id = ? AND game_number <= ? AND (participant_one IS NULL OR participant_two IS NULL);";
+        String sqlFindEmptySpots = "SELECT * FROM game  WHERE tournament_id = ? AND game_number <= ? AND (participant_one IS NULL OR participant_two IS NULL) ORDER BY game_number;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFindEmptySpots, tournamentId, (currentTournament.getMaxNumberOfParticipants()/2));
         if(results.next()) {
             Game game = mapRowToGame(results);
-            if (game.getParticipantOne() == 0) {
+            if (game.getParticipantOne() == null) {
                 String sqlAddToParticipantOne = "UPDATE game SET participant_one=? WHERE game_id = ?;";
-                jdbcTemplate.update(sqlAddToParticipantOne, nameId, game.getGameId());
+                jdbcTemplate.update(sqlAddToParticipantOne, name, game.getGameId());
             } else {
                 String sqlAddToParticipantTwo = "UPDATE game SET participant_two=? WHERE game_id = ?;";
-                jdbcTemplate.update(sqlAddToParticipantTwo, nameId, game.getGameId());
+                jdbcTemplate.update(sqlAddToParticipantTwo, name, game.getGameId());
             }
 
             //lastly, we need to update current number of participants in Tournament.
@@ -86,22 +86,18 @@ public class JdbcGameDao implements GameDao{
 
     }
 
-    @Override
-    public List<String> getParticipantNamesByTournamentId(int tournamentId) {
-        List<String> allParticipants = new ArrayList<>();
-        Tournament tournament = tournamentDao.getTournamentById(tournamentId);
-        int gamesInFirstRound = tournament.getMaxNumberOfParticipants()/2;
-        String sql = "select name from participant_name as all_participants " +
-                "join game on name_id = participant_one " +
-                "where tournament_id=? AND game_number<=? " +
-                "union select name from participant_name as all_participants " +
-                "join game on name_id = participant_two where tournament_id=? AND game_number<=?";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, tournamentId, gamesInFirstRound, tournamentId, gamesInFirstRound);
+
+    @Override
+    public List<Game> getGamesByTournamentId(int tournamentId) {
+        List<Game> allGames = new ArrayList<>();
+        String sql = "Select * from game where tournament_id = ? order by game_number";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, tournamentId);
         while(results.next()){
-            allParticipants.add(results.getString(1));
+            Game game = mapRowToGame(results);
+            allGames.add(game);
         }
-        return allParticipants;
+        return allGames;
     }
 
     private Game mapRowToGame(SqlRowSet rs) {
@@ -109,8 +105,8 @@ public class JdbcGameDao implements GameDao{
         game.setGameId(rs.getInt("game_id"));
         game.setTournamentId(rs.getInt("tournament_id"));
         game.setGameNumber(rs.getInt("game_number"));
-        game.setParticipantOne(rs.getInt("participant_one"));
-        game.setParticipantTwo(rs.getInt("participant_two"));
+        game.setParticipantOne(rs.getString("participant_one"));
+        game.setParticipantTwo(rs.getString("participant_two"));
         return game;
     }
 }

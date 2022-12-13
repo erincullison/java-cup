@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.GameDao;
 import com.techelevator.dao.TournamentDao;
+import com.techelevator.model.Game;
 import com.techelevator.model.Tournament;
 import com.techelevator.model.User;
 import org.apache.tomcat.jni.Local;
@@ -68,11 +69,10 @@ public class TournamentController {
         gameDao.addParticipantToTournament(tournamentId, name);
     }
 
-    @RequestMapping(path="tournaments/{tournamentId}/participants", method = RequestMethod.GET)
-    public List<String> getParticipantNamesByTournamentId(@PathVariable int tournamentId){
-        return gameDao.getParticipantNamesByTournamentId(tournamentId);
+    @RequestMapping(path="tournaments/{tournamentId}/games", method = RequestMethod.GET)
+    public List<Game> getGamesByTournamentId(@PathVariable int tournamentId){
+        return gameDao.getGamesByTournamentId(tournamentId);
     }
-
 
 
 

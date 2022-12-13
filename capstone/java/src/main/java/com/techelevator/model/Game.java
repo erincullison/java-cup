@@ -10,12 +10,12 @@ public class Game {
     @JsonProperty("game_number")
     private int gameNumber;
     @JsonProperty("participant_one")
-    private int participantOne;
+    private String participantOne;
     @JsonProperty("participant_two")
-    private int participantTwo;
+    private String participantTwo;
 
 
-    public Game(int gameId, int tournamentId, int gameNumber, int participantOne, int participantTwo) {
+    public Game(int gameId, int tournamentId, int gameNumber, String participantOne, String participantTwo) {
         this.gameId = gameId;
         this.tournamentId = tournamentId;
         this.gameNumber = gameNumber;
@@ -42,27 +42,27 @@ public class Game {
         this.gameNumber = gameNumber;
     }
 
-    public int getParticipantOne() {
-        return participantOne;
-    }
-
-    public void setParticipantOne(int participantOne) {
-        this.participantOne = participantOne;
-    }
-
-    public int getParticipantTwo() {
-        return participantTwo;
-    }
-
-    public void setParticipantTwo(int participantTwo) {
-        this.participantTwo = participantTwo;
-    }
-
     public int getTournamentId() {
         return tournamentId;
     }
 
     public void setTournamentId(int tournamentId) {
         this.tournamentId = tournamentId;
+    }
+
+    public String getParticipantOne() {
+        return participantOne;
+    }
+
+    public void setParticipantOne(String participantOne) {
+        this.participantOne = participantOne;
+    }
+
+    public String getParticipantTwo() {
+        return participantTwo;
+    }
+
+    public void setParticipantTwo(String participantTwo) {
+        this.participantTwo = participantTwo;
     }
 }

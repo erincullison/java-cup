@@ -4,51 +4,51 @@
       <ul class="round round-1">
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 1</li>
+        <li class="game game-top">{{this.$store.state.games[0].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li><!--Space between player 1 and player 2-->
-        <li class="game game-bottom ">Player 2</li>
+        <li class="game game-bottom ">{{this.$store.state.games[0].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li><!--Space between one match and the other-->
         
-        <li class="game game-top winner">Player 3</li>
+        <li class="game game-top ">{{this.$store.state.games[1].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 4</li>
+        <li class="game game-bottom ">{{this.$store.state.games[1].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top ">Player 5</li>
+        <li class="game game-top ">{{this.$store.state.games[2].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom winner">Player 6</li>
+        <li class="game game-bottom ">{{this.$store.state.games[2].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 7</li>
+        <li class="game game-top ">{{this.$store.state.games[3].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 8</li>
+        <li class="game game-bottom ">{{this.$store.state.games[3].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 9</li>
+        <li class="game game-top ">{{this.$store.state.games[4].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 10</li>
+        <li class="game game-bottom ">{{this.$store.state.games[4].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 11</li>
+        <li class="game game-top ">{{this.$store.state.games[5].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 12</li>
+        <li class="game game-bottom ">{{this.$store.state.games[5].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 13</li>
+        <li class="game game-top ">{{this.$store.state.games[6].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 14</li>
+        <li class="game game-bottom ">{{this.$store.state.games[6].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 15</li>
+        <li class="game game-top ">{{this.$store.state.games[7].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 16</li>
+        <li class="game game-bottom ">{{this.$store.state.games[7].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
       </ul>
@@ -56,27 +56,27 @@
       <ul class="round round-2">
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 1</li>
+        <li class="game game-top ">{{this.$store.state.games[8].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 3</li>
+        <li class="game game-bottom ">{{this.$store.state.games[8].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 6</li>
+        <li class="game game-top ">{{this.$store.state.games[9].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 7</li>
+        <li class="game game-bottom ">{{this.$store.state.games[9].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top ">Player 9</li>
+        <li class="game game-top ">{{this.$store.state.games[10].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom winner">Player 11</li>
+        <li class="game game-bottom ">{{this.$store.state.games[10].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top ">Player 13</li>
+        <li class="game game-top ">{{this.$store.state.games[11].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom winner">Player 15</li>
+        <li class="game game-bottom ">{{this.$store.state.games[11].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
       </ul>
@@ -84,15 +84,15 @@
       <ul class="round round-3">
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 1</li>
+        <li class="game game-top ">{{this.$store.state.games[12].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 6</li>
+        <li class="game game-bottom ">{{this.$store.state.games[12].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top ">Player 11</li>
+        <li class="game game-top ">{{this.$store.state.games[13].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom winner">Player 15</li>
+        <li class="game game-bottom ">{{this.$store.state.games[13].participant_two}}</li>
 
         <li class="spacer">&nbsp;</li>
       </ul>
@@ -100,16 +100,16 @@
       <ul class="round round-4">
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top winner">Player 1</li>
+        <li class="game game-top ">{{this.$store.state.games[14].participant_one}}</li>
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">Player 15</li>
+        <li class="game game-bottom ">{{this.$store.state.games[14].participant_two}}</li>
         
         <li class="spacer">&nbsp;</li>
       </ul>
 
       <ul class="round round-5">
           <li class="spacer">&nbsp;</li>
-          <li class="game game-top winner">Player 1</li>
+          <li class="game game-top ">{{this.$store.state.games[15].participant_one}}</li>
 
           <li class="spacer">&nbsp;</li>
       </ul>

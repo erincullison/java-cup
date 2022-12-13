@@ -22,7 +22,8 @@ export default new Vuex.Store({
     user: currentUser || {},
 
     //TOURNAMENTS ARRAY -- list from DB
-    tournaments: []
+    tournaments: [],
+    games: []
     
 
   },
@@ -58,6 +59,9 @@ export default new Vuex.Store({
     SET_CURRENT_TOURNAMENT_DETAILS(state, data) {
       state.currentTourneyDetails = data;
     },
+    SET_GAMES(state, data) {
+      state.games = data;
+    }
 
 
     

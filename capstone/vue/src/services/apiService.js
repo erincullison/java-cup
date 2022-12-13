@@ -22,5 +22,8 @@ export default {
   },
   join(tournamentId, participant_name) {
     return axios.post(`/tournaments/${tournamentId}`, participant_name);
+  },
+  listGames(tournamentId){
+    return axios.get(`/tournaments/${tournamentId}/games`);
   }
 }

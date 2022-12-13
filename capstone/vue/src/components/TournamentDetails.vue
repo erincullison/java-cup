@@ -57,18 +57,7 @@ export default {
         joinTournament(){
             this.$router.push({name: 'join-tournament', params: {id: this.$route.params.id}});
         }
-        /*
-        //tried this set the current tourney object ??
-         this was a good idea and honestly I'm not sure why it didn't work. All the calls to update the store 
-         seemed logical to me. But, this gives us access to the tournament without making edits to the store. 
-        -Erin
-         
-        getCurrentTourneyDetails() {
-            apiService.get(this.$route.params.id).then(response => {
-                this.$store.commit("SET_CURRENT_TOURNAMENT_DETAILS", response.data);
-            });
-        },
-        */
+        
     },
     
 
@@ -78,7 +67,12 @@ export default {
             this.tournament = response.data;
         });
         //this tournament id might have already been updated in the above call but I added directly from the route params to be safe.
-        this.tournament_id = this.$route.params.id
+        this.tournament_id = this.$route.params.id;
+
+        //updating games based on currently viewed tournament
+        apiService.listGames(this.$route.params.id).then(response => {
+                this.$store.commit("SET_GAMES", response.data)
+            })
     }
     
 

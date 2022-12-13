@@ -28,21 +28,13 @@ CREATE TABLE organizer_tournament (
 
 );
 
-CREATE TABLE participant_name (
-	name_id SERIAL,
-	name varchar(100) NOT NULL,
-	CONSTRAINT PK_name PRIMARY KEY (name_id)
-);
-
 CREATE TABLE game (
 	game_id SERIAL,
 	tournament_id integer,
 	game_number integer NOT NULL,
-	participant_one integer,
-	participant_two integer,
+	participant_one varchar(100),
+	participant_two varchar(100),
 	CONSTRAINT PK_game PRIMARY KEY (game_id),
-	CONSTRAINT FK_game_participant_one FOREIGN KEY (participant_one) REFERENCES participant_name(name_id),
-	CONSTRAINT FK_game_participant_two FOREIGN KEY (participant_two) REFERENCES participant_name(name_id),
 	CONSTRAINT FK_game_tournament FOREIGN KEY (tournament_id) REFERENCES tournament(tournament_id)
 );
 
