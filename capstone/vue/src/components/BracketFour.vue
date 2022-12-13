@@ -22,7 +22,7 @@
         <li class="game game-spacer">&nbsp;</li>
         <li class="game game-bottom">{{this.$store.state.games[2].participant_two}}</li>
 
-        <li class="spacer">&nbsp;</li>
+        <li class="spacer_round_2">&nbsp;</li>
         
       </ul>
       <ul class="round round-3">
@@ -168,5 +168,8 @@ li.game-spacer {
 
 li.game-bottom { 
   border-top: 1px solid #aaa;
+}
+.spacer_round_2 {
+  height: 30px;
 }
 </style>
