@@ -5,7 +5,7 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
-      <label for="username" class="sr-only">Username</label>
+      <label for="username" class="sr-only"></label>
       <input
         type="text"
         id="username"
@@ -15,7 +15,7 @@
         required
         autofocus
       />
-      <label for="password" class="sr-only">Password</label>
+      <label for="password" class="sr-only"></label>
       <input
         type="password"
         id="password"
@@ -31,13 +31,13 @@
         placeholder="Confirm Password"
         v-model="user.confirmPassword"
         required
-      />
-      <label for = "user-type" class="sr-only">Account Type</label>
+      /><br><br>
+      <label for = "user-type" class="sr-only">Account Type </label>
       <select v-model="user.role">
         <option disabled value = "">Please select one</option>
         <option value = 'user'>Participant</option>
         <option value = 'organizer'>Tournament Host</option>
-      </select>
+      </select><br><br>
       
 
 
@@ -104,4 +104,31 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+form.form-register {
+  text-align: center;
+  border-radius: 15px;
+  background-color: #fff;
+  overflow: hidden;
+  margin-top: 170px;
+  opacity: 1;
+  visibility: visible;
+  width: 65%;
+  height: 340px;
+  margin: auto;
+  padding: 20px;
+  backdrop-filter: blur(1px);
+  box-shadow: 20px 20px;
+}
+
+input#username.form-control {
+text-align: center;
+}
+
+input#password.form-control {
+  text-align: center;
+}
+
+
+</style>

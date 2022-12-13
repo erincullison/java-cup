@@ -178,7 +178,7 @@ main {
 body {
   font-family: sans-serif;
   font-size: small;
-  padding: 10px;
+  
   line-height: 1.4em;
 }
 

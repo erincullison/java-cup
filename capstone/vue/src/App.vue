@@ -15,6 +15,24 @@
 #nav {
   text-align: center;
   font-size: 25px;
+  /*
+      New CSS
+  */
+  display: flex;
+  background-color: white;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-bottom: 80px;
+  margin-top: -18px;
+  padding: 0 60px;
+  height: 60px;
+  
+
+}
+
+a {
+  text-decoration: none;
+  color: black;
 }
 
 html {
