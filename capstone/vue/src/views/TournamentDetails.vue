@@ -2,6 +2,7 @@
   <div class="tournament-details">
     <h1>Tournament Details</h1>
     <tournament-details />
+    
 
   </div>
 </template>
@@ -31,5 +32,6 @@ export default {
   text-align: center;
   font-size: 23px;
 }
+
 
 </style>

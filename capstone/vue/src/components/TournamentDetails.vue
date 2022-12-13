@@ -1,8 +1,8 @@
 <template>
   <div class="tournament-details">
       <section class="top-section">
-        <h1>Tournament Name:<br>{{ tournament.tournament_name }}</h1>
-        <h2>Date of Tournament:<br>{{ tournament.tournament_date }}</h2>
+        <h1>Tournament Name:<br><br>{{ tournament.tournament_name }}</h1>
+        <h2>Date of Tournament:<br><br>{{ tournament.tournament_date }}</h2>
       </section>
       
       <h3>Current # of Participants: {{ tournament.current_number_of_participants }} / 

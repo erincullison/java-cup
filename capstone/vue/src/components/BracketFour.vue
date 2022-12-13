@@ -1,5 +1,38 @@
 <template>
   <div class="bracket">
+    <main id="tournament">
+      <ul class="round round-1">
+        <li class="spacer">&nbsp;</li>
+        
+        <li class="game game-top winner">Player 1</li>
+        <li class="game game-spacer">&nbsp;</li><!--Space between player 1 and player 2-->
+        <li class="game game-bottom ">Player 2</li>
+
+        <li class="spacer">&nbsp;</li><!--Space between one match and the other-->
+        
+        <li class="game game-top winner">Player 3</li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Player 4</li>
+
+      </ul>
+      <ul class="round round-2">
+        <li class="spacer">&nbsp;</li>
+        
+        <li class="game game-top winner">Player 1</li>
+        <li class="game game-spacer">&nbsp;</li>
+        <li class="game game-bottom ">Player 3</li>
+
+        <li class="spacer">&nbsp;</li>
+        
+      </ul>
+      <ul class="round round-3">
+          <li class="spacer">&nbsp;</li>
+          <li class="game game-top winner">Player 1</li>
+
+          <li class="spacer">&nbsp;</li>
+      </ul>
+  </main>
+  <!--                              ----Previous HTML----
         <section>
             <p>Round One</p>
             <ul class="round-one" v-for="player in round_one" v-bind:key="player">
@@ -18,7 +51,7 @@
                 <li> {{final_winner}} </li>
             </ul>
         </section>
-      
+  -->
   </div>
 </template>
                                     <!-- THE ABOVE NEEDS CSS STYLING TO DISPLAY ARRAYS BY ROUND AND GROUP BY GAME -->
@@ -32,38 +65,27 @@ export default {
             round_two: ['----', '----'],
             final_winner: '----',
 
-
             // rounds: [ {
             //     games_one: [
             //         {
-
             //             player1: { id: "1", name: "Competitor 1", winner: false },
             //             player2: { id: "2", name: "Competitor 2", winner: false },
             //         },
             //         {
-
             //             player1: { id: "3", name: "Competitor 3", winner: false },
             //             player2: { id: "4", name: "Competitor 4", winner: false },
             //         }
             //     ],
         
-        
-        
             //     games_two: [
             //         {
-
             //             player1: { id: "4", name: "Competitor 4", winner: false },
             //             player2: { id: "8", name: "Competitor 8", winner: false },
             //         }
             //     ]
             // } ]
-        
-            
-        
-
         }
     }
-
 }
 </script>
 
@@ -73,7 +95,6 @@ export default {
 
 .bracket {
     display: flex;
-    
 }
 
 section {
@@ -83,6 +104,69 @@ section {
 ul {
     list-style: none;
 }
+/*
+        New CSS
+*/
+main {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+}
 
+.round {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 200px;
+  list-style: none;
+  padding: 0;
+}
 
+.round .spacer {
+  flex-grow: 1; 
+}
+.round .spacer:first-child,
+.round .spacer:last-child {
+  flex-grow: .5; 
+}
+
+.round .game-spacer {
+  flex-grow: 1;
+}
+
+/*
+   General Styles
+*/
+body {
+  font-family: sans-serif;
+  font-size: small;
+  padding: 10px;
+  line-height: 1.4em;
+}
+
+li.game {
+  padding-left: 20px;
+}
+
+li.game.winner {
+  font-weight: bold;
+}
+
+li.game span {
+  float: right;
+  margin-right: 5px;
+}
+
+li.game-top {
+  border-bottom: 1px solid #aaa;
+}
+
+li.game-spacer { 
+  border-right: 1px solid #aaa;
+  min-height: 40px;
+}
+
+li.game-bottom { 
+  border-top: 1px solid #aaa;
+}
 </style>
