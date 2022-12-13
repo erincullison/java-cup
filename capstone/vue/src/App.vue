@@ -36,6 +36,8 @@ a {
   color: black;
 }
 
+
+
 .bg-back::after {
   background-image: url(https://cdne-totv8-prod.azureedge.net/media/34057/the-stadium.jpg)
 
@@ -65,5 +67,6 @@ html::before {
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap');
 
 </style>

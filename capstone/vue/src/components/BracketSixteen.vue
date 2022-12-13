@@ -194,6 +194,7 @@ export default {
 
 .bracket {
     display: flex;
+    background-color: white;
 }
 
 section {
