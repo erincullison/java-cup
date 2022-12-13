@@ -62,18 +62,19 @@ public class JdbcGameDao implements GameDao{
             Fixed this! Needed to add order by game_number in first sql query below
 
          */
-
+        String newName = name.replace("+", " ");
+        newName = newName.replace("=", "");
         Tournament currentTournament = tournamentDao.getTournamentById(tournamentId);
-        String sqlFindEmptySpots = "SELECT * FROM game  WHERE tournament_id = ? AND game_number <= ? AND (participant_one IS NULL OR participant_two IS NULL) ORDER BY game_number;";
+        String sqlFindEmptySpots = "SELECT * FROM game  WHERE tournament_id = ? AND game_number <= ? AND (participant_one = 'TBD' OR participant_two = 'TBD') ORDER BY game_number;";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sqlFindEmptySpots, tournamentId, (currentTournament.getMaxNumberOfParticipants()/2));
         if(results.next()) {
             Game game = mapRowToGame(results);
-            if (game.getParticipantOne() == null) {
+            if (game.getParticipantOne().equals("TBD")) {
                 String sqlAddToParticipantOne = "UPDATE game SET participant_one=? WHERE game_id = ?;";
-                jdbcTemplate.update(sqlAddToParticipantOne, name, game.getGameId());
+                jdbcTemplate.update(sqlAddToParticipantOne, newName, game.getGameId());
             } else {
                 String sqlAddToParticipantTwo = "UPDATE game SET participant_two=? WHERE game_id = ?;";
-                jdbcTemplate.update(sqlAddToParticipantTwo, name, game.getGameId());
+                jdbcTemplate.update(sqlAddToParticipantTwo, newName, game.getGameId());
             }
 
             //lastly, we need to update current number of participants in Tournament.
