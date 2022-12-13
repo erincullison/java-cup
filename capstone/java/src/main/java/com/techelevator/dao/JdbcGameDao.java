@@ -6,6 +6,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class JdbcGameDao implements GameDao{
 
@@ -81,6 +84,24 @@ public class JdbcGameDao implements GameDao{
             jdbcTemplate.update(sqlIncreaseCountInTournament, tournamentId);
         }
 
+    }
+
+    @Override
+    public List<String> getParticipantNamesByTournamentId(int tournamentId) {
+        List<String> allParticipants = new ArrayList<>();
+        Tournament tournament = tournamentDao.getTournamentById(tournamentId);
+        int gamesInFirstRound = tournament.getMaxNumberOfParticipants()/2;
+        String sql = "select name from participant_name as all_participants " +
+                "join game on name_id = participant_one " +
+                "where tournament_id=? AND game_number<=? " +
+                "union select name from participant_name as all_participants " +
+                "join game on name_id = participant_two where tournament_id=? AND game_number<=?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, tournamentId, gamesInFirstRound, tournamentId, gamesInFirstRound);
+        while(results.next()){
+            allParticipants.add(results.getString(1));
+        }
+        return allParticipants;
     }
 
     private Game mapRowToGame(SqlRowSet rs) {

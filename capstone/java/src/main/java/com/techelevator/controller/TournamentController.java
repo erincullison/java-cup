@@ -68,6 +68,11 @@ public class TournamentController {
         gameDao.addParticipantToTournament(tournamentId, name);
     }
 
+    @RequestMapping(path="tournaments/{tournamentId}/participants", method = RequestMethod.GET)
+    public List<String> getParticipantNamesByTournamentId(@PathVariable int tournamentId){
+        return gameDao.getParticipantNamesByTournamentId(tournamentId);
+    }
+
 
 
 
