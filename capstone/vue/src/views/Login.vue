@@ -72,6 +72,9 @@ export default {
           }
         });
     }
+  },
+  created(){
+    document.title = "Java Cup - Login"
   }
 };
 </script>

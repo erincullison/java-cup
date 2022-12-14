@@ -21,6 +21,8 @@ export default {
 
   created() {
     // apiService.get() //THIS NEEDS ID PARAMETER FROM PASSING CURRENT TOURNAMENT
+    document.title = "Java Cup - Tournament Details"
+  
   }
 
 }

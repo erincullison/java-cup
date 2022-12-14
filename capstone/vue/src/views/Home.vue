@@ -22,7 +22,10 @@
 
 <script>
 export default {
-  name: "home"
+  name: "home",
+  created(){
+    document.title = "Java Cup"
+  }
 };
 </script>
 

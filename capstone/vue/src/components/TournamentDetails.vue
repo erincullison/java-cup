@@ -7,7 +7,7 @@
       
       <h3 class="current-part-h3">Current # of Participants: {{ tournament.current_number_of_participants }} / 
           {{ tournament.max_number_of_participants }}</h3>
-    <button class="join-tourney-button" v-on:click='joinTournament' v-bind:disabled="tournament.current_number_of_participants=== tournament.max_number_of_participants">Join Tournament</button>
+    <button class="join-tourney-button" v-on:click='joinTournament' v-if="tournament.current_number_of_participants != tournament.max_number_of_participants">Join Tournament</button>
     <!-- ADD BELOW THE DIFFERENT BRACKETS -->
     <section v-if="tournament.max_number_of_participants === 8">
         <bracket-eight />

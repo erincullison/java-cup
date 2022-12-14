@@ -9,6 +9,9 @@
 import AddTournament from '../components/AddTournament.vue'
 export default {
   components: { AddTournament },
+  created(){
+    document.title = "Java Cup - Create"
+  }
 
 }
 </script>

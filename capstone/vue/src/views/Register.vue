@@ -101,6 +101,9 @@ export default {
       this.registrationErrorMsg = 'There were problems registering this user.';
     },
   },
+  created(){
+    document.title = "Java Cup - Register"
+  }
 };
 </script>
 

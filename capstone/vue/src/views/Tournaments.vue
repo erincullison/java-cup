@@ -13,6 +13,9 @@ import TournamentList from "../components/TournamentList.vue";
 export default {
   name: 'tournaments-list',
   components: { TournamentList },
+  created(){
+    document.title = "Java Cup - Tournaments"
+  }
 
 }
 </script>

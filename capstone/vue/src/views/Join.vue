@@ -9,6 +9,9 @@
 import JoinTournament from '../components/JoinTournament.vue'
 export default {
   components: {  JoinTournament },
+  created(){
+    document.title = "Java Cup - Join"
+  }
 
 }
 </script>
