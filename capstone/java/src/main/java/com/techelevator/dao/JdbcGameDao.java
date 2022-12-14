@@ -105,10 +105,10 @@ public class JdbcGameDao implements GameDao{
     @Override
     public void winGame(GameWinDto gameWinDto) {
         String sql;
-        if (gameWinDto.getCurrent_game()%2 != 0){
+        if (gameWinDto.getCurrent_game() %2 != 0){
            sql = "UPDATE game SET participant_one=? WHERE game_number = ? AND tournament_id = ?;";
         } else {
-           sql =  "UPDATE game SET participant_two=? WHERE game_number = ? AND tournament_id = ?;";
+           sql = "UPDATE game SET participant_two=? WHERE game_number = ? AND tournament_id = ?;";
         }
         jdbcTemplate.update(sql, gameWinDto.getName(), gameWinDto.getNext_game(), gameWinDto.getTournament_id());
 

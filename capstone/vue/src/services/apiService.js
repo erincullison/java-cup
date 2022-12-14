@@ -25,5 +25,9 @@ export default {
   },
   listGames(tournamentId){
     return axios.get(`/tournaments/${tournamentId}/games`);
+  },
+
+  win(gameWin) {
+    return axios.post('/win', gameWin);
   }
 }
