@@ -18,8 +18,8 @@
       </select>
     </div>
     <div class="actions">
-      <button type="button" v-on:click="cancel()">Cancel</button>
-      <button type="submit" v-on:click="saveTournament()">Save Tournament</button>
+      <button type="button" class="cancel-button-button" v-on:click="cancel()">Cancel</button>
+      <button type="submit" class="save-tournament-button" v-on:click="saveTournament()">Save Tournament</button>
     </div>
   </form>
 </template>
@@ -100,7 +100,7 @@ form * {
 /*
     New CSS
 */
-button {
+.save-tournament-button {
   background-color: rgba(0,0,0,0,4);
   color: black;
   border:0;
@@ -114,8 +114,24 @@ button {
   cursor: pointer;
   opacity: 1;
   visibility: visible;
-  
 }
+
+.cancel-button-button {
+background-color: rgba(0,0,0,0,4);
+  color: black;
+  border:0;
+  border-radius: 15px;
+  display: block;
+  margin: 15px auto;
+  padding: 15px 45px;
+  width: 100%;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 1;
+  visibility: visible;
+}
+
 form.create-form {
   border-radius: 15px;
   background-color: #fff;

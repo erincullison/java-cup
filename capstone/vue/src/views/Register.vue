@@ -130,5 +130,18 @@ input#password.form-control {
   text-align: center;
 }
 
+.btn {
+  background-color: rgba(0,0,0,0,4);
+  color: black;
+  border: 0;
+  border-radius: 15px;
+  display: block;
+  margin: 10px auto;
+  padding: 10px 45px;
+  width: 50%;
+  font-size: 13px;
+  cursor: pointer;
+}
+
 
 </style>

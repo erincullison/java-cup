@@ -56,8 +56,8 @@ img {
   color: white;
   text-shadow: 1px -4px 0px black,
                -4px 1px 0px black,
-               4px 1px 0px black,
-               10px 10px 0px black;
+               1px 1px 0px black,
+               0px 0px 0px black;
 }
 
 
@@ -68,8 +68,8 @@ img {
   color: white;
   text-shadow: 1px -4px 0px black,
                -4px 1px 0px black,
-               4px 1px 0px black,
-               1px 4px 0px black;
+               1px 1px 0px black,
+               1px 1px 0px black;
 }
 
 

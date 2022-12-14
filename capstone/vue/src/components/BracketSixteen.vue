@@ -1,6 +1,6 @@
 <template>
   <div class="bracket">
-    <main id="tournament">
+    <main id="tournament-16">
       <ul class="round round-1">
         <li class="spacer">&nbsp;</li>
         
@@ -268,5 +268,10 @@ li.game-spacer {
 
 li.game-bottom { 
   border-top: 1px solid #aaa;
+}
+
+main#tournament-16 {
+  margin: auto;
+  
 }
 </style>

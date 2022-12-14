@@ -1,7 +1,7 @@
 <template>
   <div id="login" class="text-center">
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
+      <h1 class="sign-in-h1 h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -33,7 +33,7 @@
       /><br><br>
       
       <router-link :to="{ name: 'register' }">Need an account?</router-link>
-      <button type="submit">Sign in</button>
+      <button type="submit" class="sign-in-button">Sign in</button>
     </form>
   </div>
 </template>
@@ -79,7 +79,6 @@ export default {
 
 <style>
 
-
 form.form-signin {
   text-align: center;
   border-radius: 15px;
@@ -101,7 +100,7 @@ div#login.text-center {
   height: 300px;
 }
 
-h1 {
+.sign-in-h1 {
   margin-top: 20px;
 }
 
@@ -125,7 +124,7 @@ input#password.form-control {
   text-align: center;
 }
 
-button {
+.sign-in-button {
   background-color: rgba(0,0,0,0,4);
   color: black;
   border: 0;

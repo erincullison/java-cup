@@ -1,6 +1,6 @@
 <template>
   <div class="tournament-details">
-    <h1>Tournament Details</h1>
+    <h1 class='tournament-details-h1'>Tournament Details</h1>
     <tournament-details />
     
 
@@ -30,7 +30,16 @@ export default {
 
 .tournament-details {
   text-align: center;
-  font-size: 23px;
+}
+
+.tournament-details-h1 {
+  font-size: 50px;
+  color: white;
+  text-shadow: 1px -4px 0px black,
+               -4px 1px 0px black,
+               1px 1px 0px black,
+               0px 0px 0px black;
+               
 }
 
 

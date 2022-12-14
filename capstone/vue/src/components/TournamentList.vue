@@ -2,7 +2,7 @@
   <div class="tournament-list">
       <table>
         <thead>
-            <tr>
+            <tr class="second-row-th">
                 <th>Tournament Name</th>
                 <th>Current Participants</th>
                 <th>Max Participants</th>
@@ -16,18 +16,15 @@
                 <td>{{ tournament.max_number_of_participants }}</td>
                 <td>{{ tournament.tournament_date }}</td>
                 <td class="button">
-                <button v-on:click="getDetails(tournament.tournament_id)">Details</button> 
+                <button class='details-button' v-on:click="getDetails(tournament.tournament_id)">Details</button> 
                 </td>
                 <!-- THIS STILL NEEDS METHOD  -->
             </tr>
         </tbody>
     </table>
         <!--<button v-if="tournament.current_number_of_participants < tournament.max_number_of_participants" v-on:click="signup(tournament.tournament_id)">Details</button> -->
-
-      
   </div>
 </template>
-
 
 <script>
 //IMPORT DETAILS COMPONENT HERE IF WE ARE USING COMPONENT TO BE LISTED
@@ -63,8 +60,6 @@ export default {
     created() {
         this.listTournaments();
     }
-
-
 }
 </script>
 
@@ -77,7 +72,6 @@ table {
     margin-right: auto;
     border-collapse: separate;
     border-spacing: 0 35px;
-    
 }
 
 th {
@@ -85,6 +79,11 @@ th {
     text-decoration-line: underline;
     padding: 10px;
     text-align: center;
+    color: white;
+    text-shadow: 1px -4px 0px black,
+               -4px 1px 0px black,
+               1px 1px 0px black,
+               1px 1px 0px black;
     
 }
 
@@ -101,6 +100,7 @@ tbody {
 td {
     border-top: solid 1px;
     border-bottom: solid 1px;
+    height: 50px;
 }
 
 td.name {
@@ -111,8 +111,21 @@ td.button {
     border-right: solid 1px;
 }
 
-button {
+button.details-button {
     border: solid 1px;
+    background-color: white;
+    color: black;
+    border-radius: 15px;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    height: 80%;
+    
 }
 
 </style>

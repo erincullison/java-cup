@@ -122,12 +122,16 @@ main {
   padding: 0;
 }
 
+.round-2 {
+  
+}
+
 .round .spacer {
   flex-grow: 1; 
 }
 .round .spacer:first-child,
 .round .spacer:last-child {
-  flex-grow: .5; 
+  flex-grow: .6; 
 }
 
 .round .game-spacer {
