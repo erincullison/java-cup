@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Game;
+import com.techelevator.model.GameWinDto;
 import com.techelevator.model.Tournament;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -99,6 +100,19 @@ public class JdbcGameDao implements GameDao{
             allGames.add(game);
         }
         return allGames;
+    }
+
+    @Override
+    public void winGame(GameWinDto gameWinDto) {
+        String sql;
+        if (gameWinDto.getCurrent_game()%2 != 0){
+           sql = "UPDATE game SET participant_one=? WHERE game_number = ? AND tournament_id = ?;";
+        } else {
+           sql =  "UPDATE game SET participant_two=? WHERE game_number = ? AND tournament_id = ?;";
+        }
+        jdbcTemplate.update(sql, gameWinDto.getName(), gameWinDto.getNext_game(), gameWinDto.getTournament_id());
+
+
     }
 
     private Game mapRowToGame(SqlRowSet rs) {

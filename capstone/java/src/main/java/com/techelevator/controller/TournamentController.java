@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.GameDao;
 import com.techelevator.dao.TournamentDao;
 import com.techelevator.model.Game;
+import com.techelevator.model.GameWinDto;
 import com.techelevator.model.Tournament;
 import com.techelevator.model.User;
 import org.apache.tomcat.jni.Local;
@@ -72,6 +73,14 @@ public class TournamentController {
     @RequestMapping(path="tournaments/{tournamentId}/games", method = RequestMethod.GET)
     public List<Game> getGamesByTournamentId(@PathVariable int tournamentId){
         return gameDao.getGamesByTournamentId(tournamentId);
+    }
+
+
+    //attempts at winning functionality:
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path ="win", method = RequestMethod.POST)
+    public void winGame(@RequestBody GameWinDto gameWinDto){
+        gameDao.winGame(gameWinDto);
     }
 
 
