@@ -4,46 +4,53 @@
       <ul class="round round-1">
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top">{{this.$store.state.games[0].participant_one}}</li> 
+        <li class="game game-top">{{this.$store.state.games[0].participant_one}}
 
-        <button class = "winButton" v-on:click="updateGamePlayerOne(0, 1, 3)" 
-          v-if="(this.$store.state.games[2].participant_one=='TBD')
-          &&this.$store.state.games[0].participant_one != 'TBD'
-          &&this.$store.state.games[0].participant_two != 'TBD'"> Win
-        </button>
+          <button class = "winButton" v-on:click="updateGamePlayerOne(0, 1, 3)" 
+            v-if="(this.$store.state.games[2].participant_one=='TBD')
+            &&this.$store.state.games[0].participant_one != 'TBD'
+            &&this.$store.state.games[0].participant_two != 'TBD'">>>
+          </button>
+        </li> 
         
         <li class="game game-spacer">&nbsp;</li><!--Space between player 1 and player 2-->
 
-        <button class = "winButton" v-on:click="updateGamePlayerTwo(0, 1, 3)" 
-          v-if="(this.$store.state.games[2].participant_one=='TBD')
-          &&this.$store.state.games[0].participant_one != 'TBD'
-          &&this.$store.state.games[0].participant_two != 'TBD'"> Win
-        </button>
+        
 
-        <li class="game game-bottom">{{this.$store.state.games[0].participant_two}}</li>
+        <li class="game game-bottom">{{this.$store.state.games[0].participant_two}}
+          <button class = "winButton" v-on:click="updateGamePlayerTwo(0, 1, 3)" 
+            v-if="(this.$store.state.games[2].participant_one=='TBD')
+            &&this.$store.state.games[0].participant_one != 'TBD'
+            &&this.$store.state.games[0].participant_two != 'TBD'">>>
+          </button>
+        </li>
 
         
 
         <li class="spacer">&nbsp;</li><!--Space between one match and the other-->
         
-        <li class="game game-top">{{this.$store.state.games[1].participant_one}}</li>
+        <li class="game game-top">{{this.$store.state.games[1].participant_one}}
+          <button class = "winButton" v-on:click="updateGamePlayerOne(1, 2, 3)" 
+            v-if="(this.$store.state.games[2].participant_two=='TBD')
+            &&this.$store.state.games[1].participant_one != 'TBD'
+            &&this.$store.state.games[1].participant_two != 'TBD'">>>
+          </button>
+        </li>
 
 
-        <button class = "winButton" v-on:click="updateGamePlayerOne(1, 2, 3)" 
-          v-if="(this.$store.state.games[2].participant_two=='TBD')
-          &&this.$store.state.games[1].participant_one != 'TBD'
-          &&this.$store.state.games[1].participant_two != 'TBD'"> Win
-        </button>
+        
         
         <li class="game game-spacer">&nbsp;</li>
 
-        <button class = "winButton" v-on:click="updateGamePlayerTwo(1, 2, 3)" 
-          v-if="(this.$store.state.games[2].participant_two=='TBD')
-          &&this.$store.state.games[1].participant_one != 'TBD'
-          &&this.$store.state.games[1].participant_two != 'TBD'"> Win
-        </button>
+        
 
-        <li class="game game-bottom">{{this.$store.state.games[1].participant_two}}</li>
+        <li class="game game-bottom">{{this.$store.state.games[1].participant_two}}
+          <button class = "winButton" v-on:click="updateGamePlayerTwo(1, 2, 3)" 
+            v-if="(this.$store.state.games[2].participant_two=='TBD')
+            &&this.$store.state.games[1].participant_one != 'TBD'
+            &&this.$store.state.games[1].participant_two != 'TBD'">>>
+          </button>
+        </li>
 
         
 
@@ -51,21 +58,26 @@
       <ul class="round round-2">
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top">{{this.$store.state.games[2].participant_one}}</li>
+        <li class="game game-top">{{this.$store.state.games[2].participant_one}}
 
-        <button class = "winButton" v-on:click="updateGamePlayerOne(2, 3, 4)" 
-          v-if="(this.$store.state.games[3].participant_one=='TBD')
-          &&this.$store.state.games[2].participant_one != 'TBD'
-          &&this.$store.state.games[2].participant_two != 'TBD'"> Win
-        </button>
+          <button class = "winButton" v-on:click="updateGamePlayerOne(2, 3, 4)" 
+            v-if="(this.$store.state.games[3].participant_one=='TBD')
+            &&this.$store.state.games[2].participant_one != 'TBD'
+            &&this.$store.state.games[2].participant_two != 'TBD'"> >>
+          </button>
+        </li>
 
         <li class="game game-spacer">&nbsp;</li>
 
-       <button class = "winButton" v-on:click="updateGamePlayerTwo(2, 3, 4)" 
-          v-if="(this.$store.state.games[3].participant_one=='TBD')
-          &&this.$store.state.games[2].participant_one != 'TBD'
-          &&this.$store.state.games[2].participant_two != 'TBD'"> Win
-        </button>
+       
+
+        <li class="game game-bottom">{{this.$store.state.games[2].participant_two}}
+          <button class = "winButton" v-on:click="updateGamePlayerTwo(2, 3, 4)" 
+            v-if="(this.$store.state.games[3].participant_one=='TBD')
+            &&this.$store.state.games[2].participant_one != 'TBD'
+            &&this.$store.state.games[2].participant_two != 'TBD'"> >>
+          </button>
+        </li>
 
 
 

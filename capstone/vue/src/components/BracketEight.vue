@@ -4,52 +4,193 @@
       <ul class="round round-1">
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top">{{this.$store.state.games[0].participant_one}}</li>
+
+
+        <li class="game game-top">{{this.$store.state.games[0].participant_one}}
+          <button class = "winButton" v-on:click="updateGamePlayerOne(0, 1, 5)" 
+            v-if="(this.$store.state.games[4].participant_one=='TBD')
+            &&this.$store.state.games[0].participant_one != 'TBD'
+            &&this.$store.state.games[0].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
+        
+
         <li class="game game-spacer">&nbsp;</li><!--Space between player 1 and player 2-->
-        <li class="game game-bottom ">{{this.$store.state.games[0].participant_two}}</li>
+
+        
+
+        <li class="game game-bottom ">{{this.$store.state.games[0].participant_two}}
+          <button class = "winButton" v-on:click="updateGamePlayerTwo(0, 1, 5)" 
+            v-if="(this.$store.state.games[4].participant_one=='TBD')
+            &&this.$store.state.games[0].participant_one != 'TBD'
+            &&this.$store.state.games[0].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
+
 
         <li class="spacer">&nbsp;</li><!--Space between one match and the other-->
         
-        <li class="game game-top">{{this.$store.state.games[1].participant_one}}</li>
+
+
+        <li class="game game-top">{{this.$store.state.games[1].participant_one}}
+          <button class = "winButton" v-on:click="updateGamePlayerOne(1, 2, 5)" 
+            v-if="(this.$store.state.games[4].participant_two=='TBD')
+            &&this.$store.state.games[1].participant_one != 'TBD'
+            &&this.$store.state.games[1].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
+        
+
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">{{this.$store.state.games[1].participant_two}}</li>
+
+        
+
+        <li class="game game-bottom ">{{this.$store.state.games[1].participant_two}}
+          <button class = "winButton" v-on:click="updateGamePlayerTwo(1, 2, 5)" 
+            v-if="(this.$store.state.games[4].participant_two=='TBD')
+            &&this.$store.state.games[1].participant_one != 'TBD'
+            &&this.$store.state.games[1].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
+
+
+        <li class="spacer">&nbsp;</li>
+
+
+
+        <li class="game game-top ">{{this.$store.state.games[2].participant_one}}
+          <button class = "winButton" v-on:click="updateGamePlayerOne(2, 3, 6)" 
+            v-if="(this.$store.state.games[5].participant_one=='TBD')
+            &&this.$store.state.games[2].participant_one != 'TBD'
+            &&this.$store.state.games[2].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
+        <li class="game game-spacer">&nbsp;</li>
+
+        
+
+        <li class="game game-bottom">{{this.$store.state.games[2].participant_two}}
+          <button class = "winButton" v-on:click="updateGamePlayerTwo(2, 3, 6)" 
+            v-if="(this.$store.state.games[5].participant_one=='TBD')
+            &&this.$store.state.games[2].participant_one != 'TBD'
+            &&this.$store.state.games[2].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
+
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top ">{{this.$store.state.games[2].participant_one}}</li>
-        <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom">{{this.$store.state.games[2].participant_two}}</li>
 
-        <li class="spacer">&nbsp;</li>
+
+        <li class="game game-top">{{this.$store.state.games[3].participant_one}}
+          <button class = "winButton" v-on:click="updateGamePlayerOne(3, 4, 6)" 
+            v-if="(this.$store.state.games[5].participant_two=='TBD')
+            &&this.$store.state.games[3].participant_one != 'TBD'
+            &&this.$store.state.games[3].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
         
-        <li class="game game-top">{{this.$store.state.games[3].participant_one}}</li>
+
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">{{this.$store.state.games[3].participant_two}}</li>
+
+        
+
+        <li class="game game-bottom ">{{this.$store.state.games[3].participant_two}}
+          <button class = "winButton" v-on:click="updateGamePlayerTwo(3, 4, 6)" 
+            v-if="(this.$store.state.games[5].participant_two=='TBD')
+            &&this.$store.state.games[3].participant_one != 'TBD'
+            &&this.$store.state.games[3].participant_two != 'TBD'"> >>
+          </button>
+        </li>
 
         <li class="spacer">&nbsp;</li>
 
       </ul>
       <ul class="round round-2">
         <li class="spacer">&nbsp;</li>
+
+
         
-        <li class="game game-top">{{this.$store.state.games[4].participant_one}}</li>
+        <li class="game game-top">{{this.$store.state.games[4].participant_one}}
+          <button class = "winButton" v-on:click="updateGamePlayerOne(4, 5, 7)" 
+            v-if="(this.$store.state.games[6].participant_one=='TBD')
+            &&this.$store.state.games[4].participant_one != 'TBD'
+            &&this.$store.state.games[4].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
+        
+
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">{{this.$store.state.games[4].participant_two}}</li>
+
+        
+
+        <li class="game game-bottom ">{{this.$store.state.games[4].participant_two}}
+          <button class = "winButton" v-on:click="updateGamePlayerTwo(4, 5, 7)" 
+            v-if="(this.$store.state.games[6].participant_one=='TBD')
+            &&this.$store.state.games[4].participant_one != 'TBD'
+            &&this.$store.state.games[4].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
+
 
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top">{{this.$store.state.games[5].participant_one}}</li>
+
+
+        <li class="game game-top">{{this.$store.state.games[5].participant_one}}
+          <button class = "winButton" v-on:click="updateGamePlayerOne(5, 6, 7)" 
+            v-if="(this.$store.state.games[6].participant_two=='TBD')
+            &&this.$store.state.games[5].participant_one != 'TBD'
+            &&this.$store.state.games[5].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">{{this.$store.state.games[5].participant_two}}</li>
+
+        
+
+        <li class="game game-bottom ">{{this.$store.state.games[5].participant_two}} 
+          <button class = "winButton" v-on:click="updateGamePlayerTwo(5, 6, 7)" 
+            v-if="(this.$store.state.games[6].participant_two=='TBD')
+            &&this.$store.state.games[5].participant_one != 'TBD'
+            &&this.$store.state.games[5].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
+
 
         <li class="spacer">&nbsp;</li>
       </ul>
       <ul class="round round-3">
         <li class="spacer">&nbsp;</li>
         
-        <li class="game game-top">{{this.$store.state.games[6].participant_one}}</li>
+        <li class="game game-top">{{this.$store.state.games[6].participant_one}}
+          <button class = "winButton" v-on:click="updateGamePlayerOne(6, 7, 8)" 
+            v-if="(this.$store.state.games[7].participant_one=='TBD')
+            &&this.$store.state.games[6].participant_one != 'TBD'
+            &&this.$store.state.games[6].participant_two != 'TBD'"> >>
+          </button>
+        </li>
+
         <li class="game game-spacer">&nbsp;</li>
-        <li class="game game-bottom ">{{this.$store.state.games[6].participant_two}}</li>
+
+
+        <li class="game game-bottom ">{{this.$store.state.games[6].participant_two}}
+          <button class = "winButton" v-on:click="updateGamePlayerOne(6, 7, 6)" 
+            v-if="(this.$store.state.games[7].participant_one=='TBD')
+            &&this.$store.state.games[6].participant_one != 'TBD'
+            &&this.$store.state.games[6].participant_two != 'TBD'"> >>
+          </button>
+        </li>
 
         <li class="spacer">&nbsp;</li>
         
@@ -92,36 +233,52 @@
                                     <!-- THE ABOVE NEEDS CSS STYLING TO DISPLAY ARRAYS BY ROUND AND GROUP BY GAME -->
 
 <script>
+import apiService from '../services/apiService';
 export default {
     name: 'bracket-eight',
     data() {
         return {
-            round_one: ['player 1', 'player 2', 'player 3', 'player 4', 'player 5', 'player 6', 'player 7', 'player 8'],
-            round_two: ['----', '----', '----', '----',],
-            round_three: ['----', '----',],
-            final_winner: '----',
-
-            // rounds: [ {
-            //     games_one: [
-            //         {
-            //             player1: { id: "1", name: "Competitor 1", winner: false },
-            //             player2: { id: "2", name: "Competitor 2", winner: false },
-            //         },
-            //         {
-            //             player1: { id: "3", name: "Competitor 3", winner: false },
-            //             player2: { id: "4", name: "Competitor 4", winner: false },
-            //         }
-            //     ],
-
-            //     games_two: [
-            //         {
-            //             player1: { id: "4", name: "Competitor 4", winner: false },
-            //             player2: { id: "8", name: "Competitor 8", winner: false },
-            //         }
-            //     ]
-            // }
-            // ]
+            gameToUpdate: {
+              tournament_id: null,  
+              name: '',             
+              current_game: null,   
+              next_game: null
+          }
         }
+    },
+    methods: {
+    updateGamePlayerOne(gameIndex, current_game, next_game){
+        this.gameToUpdate.tournament_id = this.$route.params.id;
+        this.gameToUpdate.name = this.$store.state.games[gameIndex].participant_one;
+        this.gameToUpdate.current_game = current_game;
+        this.gameToUpdate.next_game = next_game;
+        apiService.win(this.gameToUpdate);
+
+        this.gameToUpdate.tournament_id = null;
+        this.gameToUpdate.name = '';
+        this.gameToUpdate.current_game = null;
+        this.gameToUpdate.next_game = null;
+        this.$router.push({name: 'tournament-details', params: {id: this.$route.params.id}})
+        window.location.reload();
+
+
+      },
+      updateGamePlayerTwo(gameIndex, current_game, next_game){
+        this.gameToUpdate.tournament_id = this.$route.params.id;
+        this.gameToUpdate.name = this.$store.state.games[gameIndex].participant_two;
+        this.gameToUpdate.current_game = current_game;
+        this.gameToUpdate.next_game = next_game;
+        apiService.win(this.gameToUpdate);
+
+        this.gameToUpdate.tournament_id = null;
+        this.gameToUpdate.name = '';
+        this.gameToUpdate.current_game = null;
+        this.gameToUpdate.next_game = null;
+        this.$router.push({name: 'tournament-details', params: {id: this.$route.params.id}})
+        window.location.reload();
+
+
+      }
     }
 }
 </script>
