@@ -43,13 +43,13 @@ a {
 
 }
 
-/* div {
+div {
   
-  font-family: 'Paytone One', sans-serif;
-  font-family: 'Bungee', cursive;
+   /* font-family: 'Paytone One', sans-serif; */
+  /* font-family: 'Bungee', cursive; */
   font-family: 'Hind', bold, sans-serif; 
   
-} */
+} 
 
 html::before {
   content: '';
