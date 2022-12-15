@@ -93,7 +93,7 @@ const router = new Router({
 
     //ROUTE TO JOIN TOURNAMENT FORM
     {
-      path:"tournaments/:id/join",
+      path:"/tournaments/:id/join",
       name: "join-tournament",
       component: Join,
       meta: {

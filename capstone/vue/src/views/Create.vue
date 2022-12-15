@@ -1,7 +1,8 @@
 <template>
   <div class="create-page">
       <h1 class='create-tournament-h1'>Create Tournament</h1>
-      <add-tournament />
+      <add-tournament v-if="$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"/>&nbsp;
+      <h1 class ='notOrganizer' v-if="$store.state.user.authorities[0].name != 'ROLE_ORGANIZER'">Sorry, you need an organizer account to create tournaments</h1>
   </div>
 </template>
 
@@ -30,6 +31,13 @@ export default {
                -4px 1px 0px black,
                1px 1px 0px black,
                0px 0px 0px black;
+}
+
+.notOrganizer{
+  text-align: center;
+  font-size: 30px;
+  color: black;
+  
 }
 
 </style>

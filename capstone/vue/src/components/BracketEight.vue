@@ -10,7 +10,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerOne(0, 1, 5)" 
             v-if="(this.$store.state.games[4].participant_one=='TBD')
             &&this.$store.state.games[0].participant_one != 'TBD'
-            &&this.$store.state.games[0].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[0].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -24,7 +25,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerTwo(0, 1, 5)" 
             v-if="(this.$store.state.games[4].participant_one=='TBD')
             &&this.$store.state.games[0].participant_one != 'TBD'
-            &&this.$store.state.games[0].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[0].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -38,7 +40,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerOne(1, 2, 5)" 
             v-if="(this.$store.state.games[4].participant_two=='TBD')
             &&this.$store.state.games[1].participant_one != 'TBD'
-            &&this.$store.state.games[1].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[1].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -52,7 +55,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerTwo(1, 2, 5)" 
             v-if="(this.$store.state.games[4].participant_two=='TBD')
             &&this.$store.state.games[1].participant_one != 'TBD'
-            &&this.$store.state.games[1].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[1].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -66,7 +70,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerOne(2, 3, 6)" 
             v-if="(this.$store.state.games[5].participant_one=='TBD')
             &&this.$store.state.games[2].participant_one != 'TBD'
-            &&this.$store.state.games[2].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[2].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -78,7 +83,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerTwo(2, 3, 6)" 
             v-if="(this.$store.state.games[5].participant_one=='TBD')
             &&this.$store.state.games[2].participant_one != 'TBD'
-            &&this.$store.state.games[2].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[2].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -92,7 +98,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerOne(3, 4, 6)" 
             v-if="(this.$store.state.games[5].participant_two=='TBD')
             &&this.$store.state.games[3].participant_one != 'TBD'
-            &&this.$store.state.games[3].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[3].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -106,7 +113,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerTwo(3, 4, 6)" 
             v-if="(this.$store.state.games[5].participant_two=='TBD')
             &&this.$store.state.games[3].participant_one != 'TBD'
-            &&this.$store.state.games[3].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[3].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -122,7 +130,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerOne(4, 5, 7)" 
             v-if="(this.$store.state.games[6].participant_one=='TBD')
             &&this.$store.state.games[4].participant_one != 'TBD'
-            &&this.$store.state.games[4].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[4].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -136,7 +145,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerTwo(4, 5, 7)" 
             v-if="(this.$store.state.games[6].participant_one=='TBD')
             &&this.$store.state.games[4].participant_one != 'TBD'
-            &&this.$store.state.games[4].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[4].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -150,7 +160,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerOne(5, 6, 7)" 
             v-if="(this.$store.state.games[6].participant_two=='TBD')
             &&this.$store.state.games[5].participant_one != 'TBD'
-            &&this.$store.state.games[5].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[5].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -162,7 +173,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerTwo(5, 6, 7)" 
             v-if="(this.$store.state.games[6].participant_two=='TBD')
             &&this.$store.state.games[5].participant_one != 'TBD'
-            &&this.$store.state.games[5].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[5].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -177,7 +189,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerOne(6, 7, 8)" 
             v-if="(this.$store.state.games[7].participant_one=='TBD')
             &&this.$store.state.games[6].participant_one != 'TBD'
-            &&this.$store.state.games[6].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[6].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
@@ -188,7 +201,8 @@
           <button class = "winButton" v-on:click="updateGamePlayerOne(6, 7, 6)" 
             v-if="(this.$store.state.games[7].participant_one=='TBD')
             &&this.$store.state.games[6].participant_one != 'TBD'
-            &&this.$store.state.games[6].participant_two != 'TBD'"> >>
+            &&this.$store.state.games[6].participant_two != 'TBD'
+            &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"> >>
           </button>
         </li>
 
