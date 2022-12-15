@@ -43,9 +43,11 @@ a {
 
 }
 
-/* html {
-  background-color: #C9D7F8;
-  font-family: 'Bebas Neue', cursive;  
+/* div {
+  
+  font-family: 'Paytone One', sans-serif;
+  font-family: 'Bungee', cursive;
+  font-family: 'Hind', bold, sans-serif; 
   
 } */
 
@@ -68,5 +70,7 @@ html::before {
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Hind:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bungee&family=Hind:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&display=swap');
 
 </style>
