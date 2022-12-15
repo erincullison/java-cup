@@ -83,6 +83,12 @@ public class TournamentController {
         gameDao.winGame(gameWinDto);
     }
 
+    //getting the organizer id so we can use it to restrict access for winning buttons:
+    @RequestMapping(path="tournaments/{tournamentId}/organizer", method = RequestMethod.GET)
+    public int getOrganizerIdByTournamentId(@PathVariable int tournamentId){
+        return tournamentDao.getOrganizerIdByTournamentId(tournamentId);
+    }
+
 
 
 }

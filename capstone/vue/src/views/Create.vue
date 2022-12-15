@@ -2,7 +2,7 @@
   <div class="create-page">
       <h1 class='create-tournament-h1'>Create Tournament</h1>
       <add-tournament v-if="$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'"/>&nbsp;
-      <h1 class ='notOrganizer' v-if="$store.state.user.authorities[0].name != 'ROLE_ORGANIZER'">Sorry, you need an organizer account to create tournaments</h1>
+      <h1 class ='notOrganizer' v-if="$store.state.user.authorities[0].name != 'ROLE_ORGANIZER'">Please make a tournament host account to start your first tournament with Java Cup!</h1>
   </div>
 </template>
 

@@ -96,8 +96,13 @@ public class JdbcTournamentDao implements TournamentDao {
 
     }
 
-
-
+    @Override
+    public int getOrganizerIdByTournamentId(int tournamentId) {
+        String sql = "SELECT organizer_id from organizer_tournament " +
+                "join tournament on tournament.tournament_id = organizer_tournament.tournament_id " +
+                "where tournament.tournament_id = ?;";
+         return jdbcTemplate.queryForObject(sql, int.class, tournamentId);
+    }
 
 
     private Tournament mapRowToTournament(SqlRowSet rs) {

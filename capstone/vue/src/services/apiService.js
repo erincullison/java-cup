@@ -29,5 +29,10 @@ export default {
 
   win(gameWin) {
     return axios.post('/win', gameWin);
+  },
+
+  getOrganizer(tournamentId){
+    return axios.get(`/tournaments/${tournamentId}/organizer`)
   }
+
 }
