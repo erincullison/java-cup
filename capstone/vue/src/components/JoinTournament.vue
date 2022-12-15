@@ -35,7 +35,7 @@ export default {
         });
     },
     cancel() {
-      this.$router.push({ name: 'tournaments'});
+      this.$router.push({ name: 'tournament-details', params: {id:this.$route.params.id}});
     }
   }
 };
