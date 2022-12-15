@@ -264,6 +264,9 @@
 import apiService from '../services/apiService';
 export default {
     name: 'bracket-eight',
+    props: {
+      organizer: Number
+    },
     data() {
         return {
             gameToUpdate: {

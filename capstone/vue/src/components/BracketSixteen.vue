@@ -392,6 +392,9 @@
 import apiService from '../services/apiService';
 export default {
     name: 'bracket-sixteen',
+    props: {
+      organizer: Number
+    },
     data() {
         return {
           //GAME OBJECT TO SEND UPDATED RANKINGS
