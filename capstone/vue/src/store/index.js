@@ -22,9 +22,19 @@ export default new Vuex.Store({
     user: currentUser || {},
 
     //TOURNAMENTS ARRAY -- list from DB
-    tournaments: [],
-    games: []
-    
+    tournaments: null,
+    games: [
+      {
+        game_id: null,
+        tournament_id: null,
+        game_number: null,
+        participant_one: '',
+        participant_two: ''
+        
+        
+
+      }
+    ]
 
   },
   mutations: {

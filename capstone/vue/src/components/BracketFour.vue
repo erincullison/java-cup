@@ -7,9 +7,10 @@
         <li class="game game-top">{{this.$store.state.games[0].participant_one}}
 
           <button class = "winButton" v-on:click="updateGamePlayerOne(0, 1, 3)" 
-            v-if="(this.$store.state.games[2].participant_one=='TBD')
+            v-if="this.$store.state.games[2].participant_one=='TBD'
             &&this.$store.state.games[0].participant_one != 'TBD'
-            &&this.$store.state.games[0].participant_two != 'TBD' 
+            &&this.$store.state.games[0].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user 
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer">>
           </button>
@@ -24,6 +25,7 @@
             v-if="(this.$store.state.games[2].participant_one=='TBD')
             &&this.$store.state.games[0].participant_one != 'TBD'
             &&this.$store.state.games[0].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer">>
           </button>
@@ -38,6 +40,7 @@
             v-if="(this.$store.state.games[2].participant_two=='TBD')
             &&this.$store.state.games[1].participant_one != 'TBD'
             &&this.$store.state.games[1].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer">>
           </button>
@@ -55,6 +58,7 @@
             v-if="(this.$store.state.games[2].participant_two=='TBD')
             &&this.$store.state.games[1].participant_one != 'TBD'
             &&this.$store.state.games[1].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer">>
           </button>
@@ -72,6 +76,7 @@
             v-if="(this.$store.state.games[3].participant_one=='TBD')
             &&this.$store.state.games[2].participant_one != 'TBD'
             &&this.$store.state.games[2].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -86,6 +91,7 @@
             v-if="(this.$store.state.games[3].participant_one=='TBD')
             &&this.$store.state.games[2].participant_one != 'TBD'
             &&this.$store.state.games[2].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -179,6 +185,11 @@ export default {
 
 
       }
+    },
+    created(){
+      apiService.listGames(this.$route.params.id).then(response => {
+                this.$store.commit("SET_GAMES", response.data)
+        });
     }
 }
 </script>

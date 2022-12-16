@@ -8,8 +8,10 @@ INSERT INTO users (username,password_hash,role) VALUES ('organizer','$2a$08$UkVv
 INSERT INTO tournament(tournament_name, tournament_date, max_number_of_participants, current_number_of_participants)
 	VALUES ('US Open 2022 - Mens Singles', '2022-08-23',8, 8);
 
-INSERT INTO organizer_tournament(organizer_id, tournament_id)
-	VALUES (3,1);
+INSERT INTO organizer_tournament(
+	organizer_id, tournament_id)
+	VALUES (3, 1);
+
 
 INSERT INTO game(tournament_id, game_number, participant_one, participant_two)
 	VALUES (1, 1, 'N Kyrgios', 'K Khachanov');
@@ -31,8 +33,10 @@ INSERT INTO game(tournament_id, game_number, participant_one, participant_two)
 INSERT INTO tournament(tournament_name, tournament_date, max_number_of_participants, current_number_of_participants)
 	VALUES ('NFL Championship 2022', '2022-01-22',4, 4);
 
-INSERT INTO organizer_tournament(organizer_id, tournament_id)
-	VALUES (3,2);
+INSERT INTO organizer_tournament(
+	organizer_id, tournament_id)
+	VALUES (3, 2);
+
 
 INSERT INTO game(tournament_id, game_number, participant_one, participant_two)
 	VALUES (2, 1, 'Bengals', 'Chiefs');
@@ -47,8 +51,10 @@ INSERT INTO game(tournament_id, game_number, participant_one, participant_two)
 INSERT INTO tournament(tournament_name, tournament_date, max_number_of_participants, current_number_of_participants)
 	VALUES ('The Official Java Cup', '2022-12-16', 16, 16);
 
-INSERT INTO organizer_tournament(organizer_id, tournament_id)
-	VALUES (3,3);
+INSERT INTO organizer_tournament(
+	organizer_id, tournament_id)
+	VALUES (3, 3);
+
 
 INSERT INTO game(tournament_id, game_number, participant_one, participant_two)
 	VALUES (3, 1, 'Java Yellow', 'Java Maroon');
@@ -87,8 +93,11 @@ INSERT INTO game(tournament_id, game_number, participant_one, participant_two)
 INSERT INTO tournament(tournament_name, tournament_date, max_number_of_participants, current_number_of_participants)
 	VALUES ('San Diego Amateur WrestleMania', '2023-01-12', 8, 3);
 
-INSERT INTO organizer_tournament(organizer_id, tournament_id)
-	VALUES (3,4);
+INSERT INTO organizer_tournament(
+	organizer_id, tournament_id)
+	VALUES (3, 4);
+
+
 
 INSERT INTO game(tournament_id, game_number, participant_one, participant_two)
 	VALUES (4, 1, 'R Evans', 'S Hester');

@@ -9,15 +9,23 @@
           {{ tournament.max_number_of_participants }}</h3>
     <button class="join-tourney-button" v-on:click='joinTournament' v-if="tournament.current_number_of_participants != tournament.max_number_of_participants">Join Tournament</button>
     <!-- ADD BELOW THE DIFFERENT BRACKETS -->
-    <section v-if="tournament.max_number_of_participants === 8" >
-        <bracket-eight v-bind:organizer="this.organizer" />
+
+    <!-- Pass these props to the brackets below for organizer id logic 
+    v-bind:organizer="this.organizer" -->
+    
+
+
+    <section  >
+        <bracket-eight v-bind:organizer="this.organizer" v-if="tournament.max_number_of_participants === 8"/>
     </section>
-    <section v-if="tournament.max_number_of_participants === 4">
-        <bracket-four v-bind:organizer="this.organizer" />
+    <section >
+        <bracket-four v-bind:organizer="this.organizer" v-if="tournament.max_number_of_participants === 4"/>
     </section>
     <section v-if="tournament.max_number_of_participants === 16">   
-        <bracket-sixteen v-bind:organizer="this.organizer" />
+        <bracket-sixteen v-bind:organizer="this.organizer"/>
     </section>
+
+
 
   </div>
 </template>
@@ -43,6 +51,7 @@ export default {
                 current_number_of_participants: 0,
                 max_number_of_participants: 0
             },
+            // organizer id verification logic 
             organizer: 0
         }                                                                 
     },
@@ -67,10 +76,10 @@ export default {
         //updating games based on currently viewed tournament
         apiService.listGames(this.$route.params.id).then(response => {
                 this.$store.commit("SET_GAMES", response.data)
-            });
+        });
         
 
-        //getting tournament organizer's user_id
+        // //getting tournament organizer's user_id
         apiService.getOrganizer(this.$route.params.id).then(response => {
                 this.organizer=response.data;
             });

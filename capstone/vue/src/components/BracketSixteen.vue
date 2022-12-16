@@ -11,6 +11,7 @@
             v-if="(this.$store.state.games[8].participant_one=='TBD')
               &&this.$store.state.games[0].participant_one != 'TBD'
               &&this.$store.state.games[0].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -21,6 +22,7 @@
             v-if="(this.$store.state.games[8].participant_one=='TBD')
               &&this.$store.state.games[0].participant_one != 'TBD'
               &&this.$store.state.games[0].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -35,6 +37,7 @@
             v-if="(this.$store.state.games[8].participant_two=='TBD')
               &&this.$store.state.games[1].participant_one != 'TBD'
               &&this.$store.state.games[1].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -45,6 +48,7 @@
             v-if="(this.$store.state.games[8].participant_two=='TBD')
               &&this.$store.state.games[1].participant_one != 'TBD'
               &&this.$store.state.games[1].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -60,6 +64,8 @@
               &&this.$store.state.games[2].participant_one != 'TBD'
               &&this.$store.state.games[2].participant_two != 'TBD'
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
+              &&this.$store.state.user.id==this.organizer
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.id==this.organizer"> >
           </button>
         </li>
@@ -69,6 +75,7 @@
             v-if="(this.$store.state.games[9].participant_one=='TBD')
               &&this.$store.state.games[2].participant_one != 'TBD'
               &&this.$store.state.games[2].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -83,6 +90,7 @@
             v-if="(this.$store.state.games[9].participant_two=='TBD')
               &&this.$store.state.games[3].participant_one != 'TBD'
               &&this.$store.state.games[3].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -93,6 +101,7 @@
             v-if="(this.$store.state.games[9].participant_two=='TBD')
               &&this.$store.state.games[3].participant_one != 'TBD'
               &&this.$store.state.games[3].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -107,6 +116,7 @@
             v-if="(this.$store.state.games[10].participant_one=='TBD')
               &&this.$store.state.games[4].participant_one != 'TBD'
               &&this.$store.state.games[4].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -117,6 +127,7 @@
             v-if="(this.$store.state.games[10].participant_one=='TBD')
               &&this.$store.state.games[4].participant_one != 'TBD'
               &&this.$store.state.games[4].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -131,6 +142,7 @@
             v-if="(this.$store.state.games[10].participant_two=='TBD')
               &&this.$store.state.games[5].participant_one != 'TBD'
               &&this.$store.state.games[5].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -141,6 +153,7 @@
             v-if="(this.$store.state.games[10].participant_two=='TBD')
               &&this.$store.state.games[5].participant_one != 'TBD'
               &&this.$store.state.games[5].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -155,6 +168,7 @@
             v-if="(this.$store.state.games[11].participant_one=='TBD')
               &&this.$store.state.games[6].participant_one != 'TBD'
               &&this.$store.state.games[6].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -165,6 +179,7 @@
             v-if="(this.$store.state.games[11].participant_one=='TBD')
               &&this.$store.state.games[6].participant_one != 'TBD'
               &&this.$store.state.games[6].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -179,6 +194,7 @@
             v-if="(this.$store.state.games[11].participant_two=='TBD')
               &&this.$store.state.games[7].participant_one != 'TBD'
               &&this.$store.state.games[7].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -189,6 +205,7 @@
             v-if="(this.$store.state.games[11].participant_two=='TBD')
               &&this.$store.state.games[7].participant_one != 'TBD'
               &&this.$store.state.games[7].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -207,6 +224,7 @@
             v-if="(this.$store.state.games[12].participant_one=='TBD')
               &&this.$store.state.games[8].participant_one != 'TBD'
               &&this.$store.state.games[8].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -217,6 +235,7 @@
             v-if="(this.$store.state.games[12].participant_one=='TBD')
               &&this.$store.state.games[8].participant_one != 'TBD'
               &&this.$store.state.games[8].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -231,6 +250,7 @@
             v-if="(this.$store.state.games[12].participant_two=='TBD')
               &&this.$store.state.games[9].participant_one != 'TBD'
               &&this.$store.state.games[9].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -241,6 +261,7 @@
             v-if="(this.$store.state.games[12].participant_two=='TBD')
               &&this.$store.state.games[9].participant_one != 'TBD'
               &&this.$store.state.games[9].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -255,6 +276,7 @@
             v-if="(this.$store.state.games[13].participant_one=='TBD')
               &&this.$store.state.games[10].participant_one != 'TBD'
               &&this.$store.state.games[10].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -265,6 +287,7 @@
             v-if="(this.$store.state.games[13].participant_one=='TBD')
               &&this.$store.state.games[10].participant_one != 'TBD'
               &&this.$store.state.games[10].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -279,6 +302,7 @@
             v-if="(this.$store.state.games[13].participant_two=='TBD')
               &&this.$store.state.games[11].participant_one != 'TBD'
               &&this.$store.state.games[11].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -289,6 +313,7 @@
             v-if="(this.$store.state.games[13].participant_two=='TBD')
               &&this.$store.state.games[11].participant_one != 'TBD'
               &&this.$store.state.games[11].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -307,6 +332,7 @@
             v-if="(this.$store.state.games[14].participant_one=='TBD')
               &&this.$store.state.games[12].participant_one != 'TBD'
               &&this.$store.state.games[12].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -317,6 +343,7 @@
             v-if="(this.$store.state.games[14].participant_one=='TBD')
               &&this.$store.state.games[12].participant_one != 'TBD'
               &&this.$store.state.games[12].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -331,6 +358,7 @@
             v-if="(this.$store.state.games[14].participant_two=='TBD')
               &&this.$store.state.games[13].participant_one != 'TBD'
               &&this.$store.state.games[13].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -341,6 +369,7 @@
             v-if="(this.$store.state.games[14].participant_two=='TBD')
               &&this.$store.state.games[13].participant_one != 'TBD'
               &&this.$store.state.games[13].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -359,6 +388,7 @@
             v-if="(this.$store.state.games[15].participant_one=='TBD')
               &&this.$store.state.games[14].participant_one != 'TBD'
               &&this.$store.state.games[14].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -369,6 +399,7 @@
             v-if="(this.$store.state.games[15].participant_one=='TBD')
               &&this.$store.state.games[14].participant_one != 'TBD'
               &&this.$store.state.games[14].participant_two != 'TBD'
+              &&'authorities' in this.$store.state.user
               &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
               &&this.$store.state.user.id==this.organizer"> >
           </button>

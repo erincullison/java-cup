@@ -31,6 +31,7 @@ export default {
     return axios.post('/win', gameWin);
   },
 
+  // Logic for organizer id verification
   getOrganizer(tournamentId){
     return axios.get(`/tournaments/${tournamentId}/organizer`)
   }

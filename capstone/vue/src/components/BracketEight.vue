@@ -5,12 +5,16 @@
         <li class="spacer">&nbsp;</li>
         
 
+          <!-- Additional button logic for organizer id verification:
+          (Will need to be in each bracket template for implementation)
+          &&this.$store.state.user.id==this.organizer -->
 
         <li class="game game-top">{{this.$store.state.games[0].participant_one}}
           <button class = "winButton" v-on:click="updateGamePlayerOne(0, 1, 5)" 
             v-if="(this.$store.state.games[4].participant_one=='TBD')
             &&this.$store.state.games[0].participant_one != 'TBD'
             &&this.$store.state.games[0].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -27,6 +31,7 @@
             v-if="(this.$store.state.games[4].participant_one=='TBD')
             &&this.$store.state.games[0].participant_one != 'TBD'
             &&this.$store.state.games[0].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -43,6 +48,7 @@
             v-if="(this.$store.state.games[4].participant_two=='TBD')
             &&this.$store.state.games[1].participant_one != 'TBD'
             &&this.$store.state.games[1].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -59,6 +65,7 @@
             v-if="(this.$store.state.games[4].participant_two=='TBD')
             &&this.$store.state.games[1].participant_one != 'TBD'
             &&this.$store.state.games[1].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -75,6 +82,7 @@
             v-if="(this.$store.state.games[5].participant_one=='TBD')
             &&this.$store.state.games[2].participant_one != 'TBD'
             &&this.$store.state.games[2].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -89,6 +97,7 @@
             v-if="(this.$store.state.games[5].participant_one=='TBD')
             &&this.$store.state.games[2].participant_one != 'TBD'
             &&this.$store.state.games[2].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -105,6 +114,7 @@
             v-if="(this.$store.state.games[5].participant_two=='TBD')
             &&this.$store.state.games[3].participant_one != 'TBD'
             &&this.$store.state.games[3].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -121,6 +131,7 @@
             v-if="(this.$store.state.games[5].participant_two=='TBD')
             &&this.$store.state.games[3].participant_one != 'TBD'
             &&this.$store.state.games[3].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -139,6 +150,7 @@
             v-if="(this.$store.state.games[6].participant_one=='TBD')
             &&this.$store.state.games[4].participant_one != 'TBD'
             &&this.$store.state.games[4].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -155,6 +167,7 @@
             v-if="(this.$store.state.games[6].participant_one=='TBD')
             &&this.$store.state.games[4].participant_one != 'TBD'
             &&this.$store.state.games[4].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -171,6 +184,7 @@
             v-if="(this.$store.state.games[6].participant_two=='TBD')
             &&this.$store.state.games[5].participant_one != 'TBD'
             &&this.$store.state.games[5].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -185,6 +199,7 @@
             v-if="(this.$store.state.games[6].participant_two=='TBD')
             &&this.$store.state.games[5].participant_one != 'TBD'
             &&this.$store.state.games[5].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -202,6 +217,7 @@
             v-if="(this.$store.state.games[7].participant_one=='TBD')
             &&this.$store.state.games[6].participant_one != 'TBD'
             &&this.$store.state.games[6].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
@@ -215,6 +231,7 @@
             v-if="(this.$store.state.games[7].participant_one=='TBD')
             &&this.$store.state.games[6].participant_one != 'TBD'
             &&this.$store.state.games[6].participant_two != 'TBD'
+            &&'authorities' in this.$store.state.user
             &&this.$store.state.user.authorities[0].name == 'ROLE_ORGANIZER'
             &&this.$store.state.user.id==this.organizer"> >
           </button>
